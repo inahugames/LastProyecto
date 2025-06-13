@@ -58,6 +58,12 @@
     <Compile Include="FormLista.Designer.cs">
       <DependentUpon>FormLista.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListarOperaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListarOperaciones.Designer.cs">
+      <DependentUpon>ListarOperaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLista.resx">
       <DependentUpon>FormLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListarOperaciones.resx">
+      <DependentUpon>ListarOperaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion.resx">
       <DependentUpon>Operacion.cs</DependentUpon>

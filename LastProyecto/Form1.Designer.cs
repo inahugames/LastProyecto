@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.listasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaOperaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarOperacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +40,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listasToolStripMenuItem,
-            this.nuevaOperaciónToolStripMenuItem});
+            this.nuevaOperaciónToolStripMenuItem,
+            this.listarOperacionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
@@ -59,6 +61,12 @@
             this.nuevaOperaciónToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.nuevaOperaciónToolStripMenuItem.Text = "Nueva Operación";
             this.nuevaOperaciónToolStripMenuItem.Click += new System.EventHandler(this.nuevaOperaciónToolStripMenuItem_Click);
+            // 
+            // listarOperacionesToolStripMenuItem
+            // 
+            this.listarOperacionesToolStripMenuItem.Name = "listarOperacionesToolStripMenuItem";
+            this.listarOperacionesToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.listarOperacionesToolStripMenuItem.Text = "Listar Operaciones";
             // 
             // Form1
             // 
@@ -83,5 +91,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem listasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaOperaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarOperacionesToolStripMenuItem;
     }
 }

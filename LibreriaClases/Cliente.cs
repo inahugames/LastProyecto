@@ -8,12 +8,6 @@ namespace LibreriaClases
 {
     public class Cliente
     {
-        private int _id;
-        public int ID
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
         
         private float _CUIT;
         public float CUIT
@@ -30,8 +24,7 @@ namespace LibreriaClases
         public Cliente(string linea)
         {
             string[] datos = linea.Split(';');
-            ID = Convert.ToInt32(datos[0]);
-            CUIT = float.Parse(datos[1]);
+            CUIT = float.Parse(datos[0]);
         }
     }
 }
