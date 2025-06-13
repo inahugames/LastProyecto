@@ -59,14 +59,21 @@ namespace LastProyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            txtPrecio.Text = Convert.ToString(DeterminarPrecio());
-            Operaciones nueva = new Operaciones();
-            nueva.CUITCliente = Registracion.ListClientes[seleccionc].CUIT;
-            nueva.CodigoProducto = Registracion.ListProductos[seleccionp].Codigo;
-            nueva.MedioPago = comboBox1.Text;
-            nueva.CantProd = Convert.ToString(numCantProd.Value);
-            EscriboOperaciones(nueva);
-            Registracion.ListOperaciones.Add(nueva);
+            if (numCantProd.Value > 0 && comboBox1.Text != null)
+            {
+                txtPrecio.Text = Convert.ToString(DeterminarPrecio());
+                Operaciones nueva = new Operaciones();
+                nueva.CUITCliente = Registracion.ListClientes[seleccionc].CUIT;
+                nueva.CodigoProducto = Registracion.ListProductos[seleccionp].Codigo;
+                nueva.MedioPago = comboBox1.Text;
+                nueva.CantProd = Convert.ToString(numCantProd.Value);
+                EscriboOperaciones(nueva);
+                Registracion.ListOperaciones.Add(nueva);
+            }
+            else
+            {
+                MessageBox.Show("Datos inválidos.");
+            }
         }
 
         private void Operacion_Load(object sender, EventArgs e)
@@ -103,7 +110,16 @@ namespace LastProyecto
         {
             if ( numCantProd.Value > 1 )
             {
-                precio = Registracion.ListProductos[seleccionp].Precio * Convert.ToInt32(numCantProd.Value);
+                if ( txtDescuento.Text == null || txtDescuento.Text == "" )
+                {
+                    precio = Registracion.ListProductos[seleccionp].Precio * 0.8;
+                    precio = precio * Convert.ToInt32(numCantProd.Value);
+                }
+                else
+                {
+                    precio = Registracion.ListProductos[seleccionp].Precio * Convert.ToDouble(txtDescuento.Text);
+                    precio = precio * Convert.ToInt32(numCantProd.Value);
+                }
             }
             precio = precio * 1.21;
             return precio;

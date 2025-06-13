@@ -37,6 +37,8 @@
             this.numCantProd = new System.Windows.Forms.NumericUpDown();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCantProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -53,7 +55,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 120);
+            this.button1.Location = new System.Drawing.Point(15, 157);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(256, 82);
             this.button1.TabIndex = 6;
@@ -64,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 91);
+            this.label2.Location = new System.Drawing.Point(12, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 16);
             this.label2.TabIndex = 8;
@@ -72,7 +74,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(171, 85);
+            this.txtPrecio.Location = new System.Drawing.Point(171, 115);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(100, 22);
@@ -128,11 +130,29 @@
             this.dgvProductos.TabIndex = 14;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 89);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 16);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Descuentos Aplicables";
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Location = new System.Drawing.Point(171, 83);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(100, 22);
+            this.txtDescuento.TabIndex = 15;
+            // 
             // Operacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1156, 324);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.numCantProd);
@@ -163,5 +183,7 @@
         private System.Windows.Forms.NumericUpDown numCantProd;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDescuento;
     }
 }
