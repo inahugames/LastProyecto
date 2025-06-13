@@ -93,6 +93,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\Debug\Clientes.csv" />
+    <None Include="bin\Debug\LastProyecto.exe.config" />
+    <None Include="bin\Debug\Operaciones.csv" />
+    <None Include="bin\Debug\Productos.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +115,15 @@
       <Project>{ee6f4545-7539-4c53-bac4-0dd145b14dc6}</Project>
       <Name>LibreriaClases</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\LastProyecto.exe" />
+    <Content Include="bin\Debug\LastProyecto.pdb" />
+    <Content Include="bin\Debug\LibreriaClases.dll" />
+    <Content Include="bin\Debug\LibreriaClases.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
