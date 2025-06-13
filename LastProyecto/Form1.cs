@@ -42,7 +42,7 @@ namespace LastProyecto
 
         public void CargaClientes()
         {
-            StreamReader lector = new StreamReader("Clientes.txt");
+            StreamReader lector = new StreamReader("Clientes.csv");
             string linea = lector.ReadLine();
             while ( linea != null )
             {
@@ -55,7 +55,7 @@ namespace LastProyecto
 
         public void CargaProductos()
         {
-            StreamReader lector = new StreamReader("Productos.txt");
+            StreamReader lector = new StreamReader("Productos.csv");
             string linea = lector.ReadLine();
             while (linea != null)
             {
@@ -68,7 +68,7 @@ namespace LastProyecto
 
         public void CargaOperaciones()
         {
-            StreamReader lector = new StreamReader("Operaciones.txt");
+            StreamReader lector = new StreamReader("Operaciones.csv");
             string linea = lector.ReadLine();
             while (linea != null)
             {

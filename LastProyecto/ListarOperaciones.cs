@@ -15,11 +15,13 @@ namespace LastProyecto
     {
         int seleccion;
         int n = 0;
+        bool prod;
         public ListarOperaciones()
         {
             InitializeComponent();
-            dgvClientes.DataSource = null;
-            dgvClientes.DataSource = Registracion.ListClientes;
+            dgvDatos.DataSource = null;
+            dgvDatos.DataSource = Registracion.ListClientes;
+            prod = false;
         }
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -29,18 +31,56 @@ namespace LastProyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dgvOperaciones.Rows.Clear();
-            while ( n < Registracion.ListOperaciones.Count )
+            if (prod == false)
             {
-                if ( Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccion].CUIT )
+                dgvOperaciones.Rows.Clear();
+                n = 0;
+                while (n < Registracion.ListOperaciones.Count)
                 {
-                    dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
-                    n++;
+                    if (Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccion].CUIT)
+                    {
+                        dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
+                        n++;
+                    }
+                    else
+                    {
+                        n++;
+                    }
                 }
-                else
+            }
+            else
+            {
+                dgvOperaciones.Rows.Clear();
+                n = 0;
+                while ( n < Registracion.ListOperaciones.Count )
                 {
-                    n++;
+                    if ( Registracion.ListOperaciones[n].CodigoProducto == Registracion.ListProductos[seleccion].Codigo )
+                    {
+                        dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
+                        n++;
+                    }
+                    else
+                    {
+                        n++;
+                    }
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dgvOperaciones.Rows.Clear();
+            if (prod == false)
+            {
+                dgvDatos.DataSource = null;
+                dgvDatos.DataSource = Registracion.ListProductos;
+                prod = true;
+            }
+            else
+            {
+                dgvDatos.DataSource = null;
+                dgvDatos.DataSource = Registracion.ListClientes;
+                prod = false;
             }
         }
     }

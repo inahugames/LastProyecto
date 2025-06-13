@@ -1,6 +1,0 @@
-1;A;Efectivo;3
-1;A;Efectivo;1
-1;A;Transferencia;4
-1;A;Efectivo;7
-1;A;Efectivo;4
-1;A;Transferencia;2
