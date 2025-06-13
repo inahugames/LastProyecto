@@ -78,5 +78,12 @@ namespace LastProyecto
             }
             lector.Close();
         }
+
+        private void listarOperacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListarOperaciones listop = new ListarOperaciones();
+            listop.MdiParent = this;
+            listop.Show();
+        }
     }
 }

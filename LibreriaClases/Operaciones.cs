@@ -55,5 +55,10 @@ namespace LibreriaClases
         {
             return CUITCliente + ";" + CodigoProducto + ";" + MedioPago + ";" + CantProd; 
         }
+
+        public object[] GenerarObjeto()
+        {
+            return new object[] { CUITCliente, CodigoProducto, MedioPago, CantProd };
+        }
     }
 }

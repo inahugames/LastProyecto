@@ -14,6 +14,7 @@ namespace LastProyecto
     public partial class ListarOperaciones : Form
     {
         int seleccion;
+        int n = 0;
         public ListarOperaciones()
         {
             InitializeComponent();
@@ -24,6 +25,23 @@ namespace LastProyecto
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             seleccion = e.RowIndex;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgvOperaciones.Rows.Clear();
+            while ( n < Registracion.ListOperaciones.Count )
+            {
+                if ( Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccion].CUIT )
+                {
+                    dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
+                    n++;
+                }
+                else
+                {
+                    n++;
+                }
+            }
         }
     }
 }

@@ -67,6 +67,7 @@
             this.listarOperacionesToolStripMenuItem.Name = "listarOperacionesToolStripMenuItem";
             this.listarOperacionesToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
             this.listarOperacionesToolStripMenuItem.Text = "Listar Operaciones";
+            this.listarOperacionesToolStripMenuItem.Click += new System.EventHandler(this.listarOperacionesToolStripMenuItem_Click);
             // 
             // Form1
             // 
