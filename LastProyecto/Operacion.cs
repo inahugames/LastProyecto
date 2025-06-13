@@ -83,10 +83,10 @@ namespace LastProyecto
 
         public void EscriboOperaciones(Operaciones nueva)
         {
-            StreamReader lector = new StreamReader("Operaciones.csv");
+            StreamReader lector = new StreamReader("Operaciones.txt");
             string texto = lector.ReadToEnd();
             lector.Close();
-            StreamWriter escritor = new StreamWriter("Operaciones.csv");
+            StreamWriter escritor = new StreamWriter("Operaciones.txt");
             escritor.Write(texto + Environment.NewLine + nueva.GeneraLinea());
             escritor.Close();
         }
