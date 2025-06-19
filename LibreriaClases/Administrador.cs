@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibreriaClases
 {
-    public class Vendedor : Persona
+    public class Administrador : Persona
     {
 
     }

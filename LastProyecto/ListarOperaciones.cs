@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,39 +32,46 @@ namespace LastProyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (prod == false)
+            try
             {
-                dgvOperaciones.Rows.Clear();
-                n = 0;
-                while (n < Registracion.ListOperaciones.Count)
+                if (prod == false)
                 {
-                    if (Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccion].CUIT)
+                    dgvOperaciones.Rows.Clear();
+                    n = 0;
+                    while (n < Registracion.ListOperaciones.Count)
                     {
-                        dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
-                        n++;
+                        if (Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccion].CUIT)
+                        {
+                            dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
+                            n++;
+                        }
+                        else
+                        {
+                            n++;
+                        }
                     }
-                    else
+                }
+                else
+                {
+                    dgvOperaciones.Rows.Clear();
+                    n = 0;
+                    while (n < Registracion.ListOperaciones.Count)
                     {
-                        n++;
+                        if (Registracion.ListOperaciones[n].CodigoProducto == Registracion.ListProductos[seleccion].Codigo)
+                        {
+                            dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
+                            n++;
+                        }
+                        else
+                        {
+                            n++;
+                        }
                     }
                 }
             }
-            else
+            catch
             {
-                dgvOperaciones.Rows.Clear();
-                n = 0;
-                while ( n < Registracion.ListOperaciones.Count )
-                {
-                    if ( Registracion.ListOperaciones[n].CodigoProducto == Registracion.ListProductos[seleccion].Codigo )
-                    {
-                        dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
-                        n++;
-                    }
-                    else
-                    {
-                        n++;
-                    }
-                }
+                MessageBox.Show("Elija un producto o cliente");
             }
         }
 
