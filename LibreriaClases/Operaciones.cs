@@ -8,11 +8,32 @@ namespace LibreriaClases
 {
     public class Operaciones
     {
+        private int _num;
+        public int Num
+        { 
+            get { return _num; }
+            set { _num = value; }
+        }
+
+        private string _fecha;
+        public string Fecha
+        {
+            get { return _fecha; }
+            set { _fecha = value; }
+        }
+        
         private double _cuitcliente;
         public double CUITCliente
         {
             get { return _cuitcliente; }
             set { _cuitcliente = value; }
+        }
+
+        private string _razoncliente;
+        public string RazonCliente
+        {
+            get { return _razoncliente; }
+            set { _razoncliente = value; }
         }
 
         private string _codigoproducto;
@@ -45,20 +66,23 @@ namespace LibreriaClases
         public Operaciones(string linea)
         {
             string[] datos = linea.Split(';');
-            CUITCliente = int.Parse(datos[0]);
-            CodigoProducto = datos[1];
-            MedioPago = datos[2];
-            CantProd = datos[3];
+            Num = int.Parse(datos[0]);
+            Fecha = datos[1];
+            CUITCliente = int.Parse(datos[2]);
+            RazonCliente = datos[3];
+            CodigoProducto = datos[4];
+            MedioPago = datos[5];
+            CantProd = datos[6];
         }
 
         public string GeneraLinea()
         {
-            return CUITCliente + ";" + CodigoProducto + ";" + MedioPago + ";" + CantProd; 
+            return Num + ";" + Fecha + ";" + CUITCliente + ";" + RazonCliente + ";" + CodigoProducto + ";" + MedioPago + ";" + CantProd; 
         }
 
         public object[] GenerarObjeto()
         {
-            return new object[] { CUITCliente, CodigoProducto, MedioPago, CantProd };
+            return new object[] { Num, Fecha, CUITCliente, RazonCliente, CodigoProducto, MedioPago, CantProd };
         }
     }
 }

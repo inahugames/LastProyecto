@@ -15,8 +15,10 @@ namespace LastProyecto
     public partial class ListarOperaciones : Form
     {
         int seleccion;
+        string dgvseleccion;
         int n = 0;
         bool prod;
+        List<Producto> listacompra = new List<Producto>();
         public ListarOperaciones()
         {
             InitializeComponent();
@@ -89,6 +91,36 @@ namespace LastProyecto
                 dgvDatos.DataSource = null;
                 dgvDatos.DataSource = Registracion.ListClientes;
                 prod = false;
+            }
+        }
+
+        private void btnGenerarFactura_Click(object sender, EventArgs e)
+        {
+            int seleccionfac = int.Parse(dgvseleccion);
+            seleccionfac = seleccionfac - 1;
+            string prodseleccion = Registracion.ListOperaciones[seleccionfac].CodigoProducto;
+            foreach (Producto prod in Registracion.ListProductos)
+            {
+                if (prodseleccion == prod.Codigo)
+                {
+                    listacompra.Add(prod);
+                    break;
+                }
+            }
+            FormFactura factos = new FormFactura(Registracion.ListOperaciones[seleccionfac].Num, Registracion.ListOperaciones[seleccionfac].Fecha, Registracion.ListOperaciones[seleccionfac].CUITCliente, Registracion.ListOperaciones[seleccionfac].RazonCliente, int.Parse(Registracion.ListOperaciones[seleccionfac].CantProd), listacompra[0].Codigo, listacompra[0].Precio, 1);
+            factos.Show();
+        }
+
+        private void dgvOperaciones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvOperaciones.Columns[e.ColumnIndex].Name == "Num")
+            {
+                object a = dgvOperaciones.CurrentCell.Value;
+                dgvseleccion = a.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Seleciona un número de operación para producir su factura.");
             }
         }
     }

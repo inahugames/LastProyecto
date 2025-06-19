@@ -30,12 +30,16 @@
         {
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.dgvOperaciones = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnGenerarFactura = new System.Windows.Forms.Button();
+            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CUITCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedioPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperaciones)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +59,10 @@
             // 
             this.dgvOperaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOperaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Num,
+            this.Fecha,
             this.CUITCliente,
+            this.RazonCliente,
             this.CodigoProducto,
             this.MedioPago,
             this.CantProd});
@@ -65,34 +72,7 @@
             this.dgvOperaciones.RowTemplate.Height = 24;
             this.dgvOperaciones.Size = new System.Drawing.Size(537, 425);
             this.dgvOperaciones.TabIndex = 1;
-            // 
-            // CUITCliente
-            // 
-            this.CUITCliente.HeaderText = "CUIT Cliente";
-            this.CUITCliente.MinimumWidth = 6;
-            this.CUITCliente.Name = "CUITCliente";
-            this.CUITCliente.Width = 125;
-            // 
-            // CodigoProducto
-            // 
-            this.CodigoProducto.HeaderText = "Código Producto";
-            this.CodigoProducto.MinimumWidth = 6;
-            this.CodigoProducto.Name = "CodigoProducto";
-            this.CodigoProducto.Width = 125;
-            // 
-            // MedioPago
-            // 
-            this.MedioPago.HeaderText = "Medio de Pago";
-            this.MedioPago.MinimumWidth = 6;
-            this.MedioPago.Name = "MedioPago";
-            this.MedioPago.Width = 125;
-            // 
-            // CantProd
-            // 
-            this.CantProd.HeaderText = "Cantidad de Productos";
-            this.CantProd.MinimumWidth = 6;
-            this.CantProd.Name = "CantProd";
-            this.CantProd.Width = 125;
+            this.dgvOperaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperaciones_CellClick);
             // 
             // button1
             // 
@@ -114,11 +94,77 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btnGenerarFactura
+            // 
+            this.btnGenerarFactura.Location = new System.Drawing.Point(13, 245);
+            this.btnGenerarFactura.Name = "btnGenerarFactura";
+            this.btnGenerarFactura.Size = new System.Drawing.Size(170, 110);
+            this.btnGenerarFactura.TabIndex = 4;
+            this.btnGenerarFactura.Text = "Generar Factura";
+            this.btnGenerarFactura.UseVisualStyleBackColor = true;
+            this.btnGenerarFactura.Click += new System.EventHandler(this.btnGenerarFactura_Click);
+            // 
+            // Num
+            // 
+            this.Num.HeaderText = "Número Factura";
+            this.Num.MinimumWidth = 6;
+            this.Num.Name = "Num";
+            this.Num.Width = 125;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.MinimumWidth = 6;
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 125;
+            // 
+            // CUITCliente
+            // 
+            this.CUITCliente.HeaderText = "CUIT Cliente";
+            this.CUITCliente.MinimumWidth = 6;
+            this.CUITCliente.Name = "CUITCliente";
+            this.CUITCliente.ReadOnly = true;
+            this.CUITCliente.Width = 125;
+            // 
+            // RazonCliente
+            // 
+            this.RazonCliente.HeaderText = "Razón Cliente";
+            this.RazonCliente.MinimumWidth = 6;
+            this.RazonCliente.Name = "RazonCliente";
+            this.RazonCliente.ReadOnly = true;
+            this.RazonCliente.Width = 125;
+            // 
+            // CodigoProducto
+            // 
+            this.CodigoProducto.HeaderText = "Código Producto";
+            this.CodigoProducto.MinimumWidth = 6;
+            this.CodigoProducto.Name = "CodigoProducto";
+            this.CodigoProducto.ReadOnly = true;
+            this.CodigoProducto.Width = 125;
+            // 
+            // MedioPago
+            // 
+            this.MedioPago.HeaderText = "Medio de Pago";
+            this.MedioPago.MinimumWidth = 6;
+            this.MedioPago.Name = "MedioPago";
+            this.MedioPago.ReadOnly = true;
+            this.MedioPago.Width = 125;
+            // 
+            // CantProd
+            // 
+            this.CantProd.HeaderText = "Cantidad de Productos";
+            this.CantProd.MinimumWidth = 6;
+            this.CantProd.Name = "CantProd";
+            this.CantProd.ReadOnly = true;
+            this.CantProd.Width = 125;
+            // 
             // ListarOperaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 443);
+            this.Controls.Add(this.btnGenerarFactura);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvOperaciones);
@@ -136,10 +182,14 @@
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.DataGridView dgvOperaciones;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnGenerarFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CUITCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RazonCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedioPago;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantProd;
-        private System.Windows.Forms.Button button2;
     }
 }
