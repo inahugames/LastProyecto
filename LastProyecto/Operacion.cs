@@ -18,6 +18,9 @@ namespace LastProyecto
         int seleccionc;
         int seleccionp;
         double precio;
+        int puntero = 0;
+        int cantidad = 0;
+        List<Producto> listcompra = new List<Producto>();
         public Operacion()
         {
             InitializeComponent();
@@ -59,14 +62,20 @@ namespace LastProyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (numCantProd.Value > 0 && comboBox1.Text != null)
+            if (listcompra.Count > 0 && comboBox1.Text != null)
             {
-                txtPrecio.Text = Convert.ToString(DeterminarPrecio());
+                //txtPrecio.Text = Convert.ToString(DeterminarPrecio());
                 Operaciones nueva = new Operaciones();
                 nueva.CUITCliente = Registracion.ListClientes[seleccionc].CUIT;
                 nueva.CodigoProducto = Registracion.ListProductos[seleccionp].Codigo;
                 nueva.MedioPago = comboBox1.Text;
-                nueva.CantProd = Convert.ToString(numCantProd.Value);
+                int n = 0;
+                while ( n < listcompra.Count )
+                {
+                    nueva.AñadirLista(listcompra[n]);
+                    n++;
+                }
+                /*nueva.CantProd = Convert.ToString(numCantProd.Value);*/
                 EscriboOperaciones(nueva);
                 Registracion.ListOperaciones.Add(nueva);
             }
@@ -106,7 +115,22 @@ namespace LastProyecto
 
         }
 
-        private double DeterminarPrecio()
+        private void btnAgregarAlCarro_Click(object sender, EventArgs e)
+        {
+            listcompra.Add(Registracion.ListProductos[seleccionp]);
+            listcompra[puntero].Costo = Convert.ToInt32(numCantProd.Value);
+            precio += Registracion.ListProductos[seleccionp].Precio;
+            cantidad += Convert.ToInt32(numCantProd.Value);
+            double descuento = (cantidad * 0.05);
+            descuento = 1.00 - descuento;
+            precio = precio * cantidad;
+            precio = precio * descuento;
+            listcompra[puntero].Existencia = precio;
+            txtCarrito.Text += Registracion.ListProductos[seleccionp].Codigo + "\tCANTIDAD: " + numCantProd.Value + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
+            puntero++;
+        }
+
+        /*private double DeterminarPrecio()
         {
             if ( numCantProd.Value > 1 )
             {
@@ -123,6 +147,6 @@ namespace LastProyecto
             }
             precio = precio * 1.21;
             return precio;
-        }
+        }*/
     }
 }

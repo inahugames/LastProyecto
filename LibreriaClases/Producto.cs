@@ -27,8 +27,8 @@ namespace LibreriaClases
             set { _precio = value; }
         }
 
-        private int _existencia;
-        public int Existencia
+        private double _existencia;
+        public double Existencia
         {
             get { return _existencia; }
             set { _existencia = value; }
@@ -37,6 +37,14 @@ namespace LibreriaClases
         public Producto()
         {
             
+        }
+
+        public Producto(int cant, string cod, int prec, int ex)
+        {
+            Costo = cant; // costo en este caso se usa para determinar la cantidad de productos en la operacion
+            Codigo = cod;
+            Precio = prec;
+            Existencia = ex; // uso la existencia para determinar el costo total del producto en la operacion
         }
 
         public Producto(string linea)

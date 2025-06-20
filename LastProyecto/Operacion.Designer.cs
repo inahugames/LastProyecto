@@ -39,6 +39,8 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.btnAgregarAlCarro = new System.Windows.Forms.Button();
+            this.txtCarrito = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCantProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -55,7 +57,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 157);
+            this.button1.Location = new System.Drawing.Point(15, 461);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(256, 82);
             this.button1.TabIndex = 6;
@@ -146,11 +148,32 @@
             this.txtDescuento.Size = new System.Drawing.Size(100, 22);
             this.txtDescuento.TabIndex = 15;
             // 
+            // btnAgregarAlCarro
+            // 
+            this.btnAgregarAlCarro.Location = new System.Drawing.Point(15, 373);
+            this.btnAgregarAlCarro.Name = "btnAgregarAlCarro";
+            this.btnAgregarAlCarro.Size = new System.Drawing.Size(256, 82);
+            this.btnAgregarAlCarro.TabIndex = 17;
+            this.btnAgregarAlCarro.Text = "Agregar Al Carrito";
+            this.btnAgregarAlCarro.UseVisualStyleBackColor = true;
+            this.btnAgregarAlCarro.Click += new System.EventHandler(this.btnAgregarAlCarro_Click);
+            // 
+            // txtCarrito
+            // 
+            this.txtCarrito.Location = new System.Drawing.Point(15, 163);
+            this.txtCarrito.Multiline = true;
+            this.txtCarrito.Name = "txtCarrito";
+            this.txtCarrito.ReadOnly = true;
+            this.txtCarrito.Size = new System.Drawing.Size(256, 204);
+            this.txtCarrito.TabIndex = 18;
+            // 
             // Operacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 324);
+            this.ClientSize = new System.Drawing.Size(1156, 555);
+            this.Controls.Add(this.txtCarrito);
+            this.Controls.Add(this.btnAgregarAlCarro);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.dgvProductos);
@@ -185,5 +208,7 @@
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.Button btnAgregarAlCarro;
+        private System.Windows.Forms.TextBox txtCarrito;
     }
 }

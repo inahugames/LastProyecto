@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,8 @@ namespace LibreriaClases
 {
     public class Operaciones
     {
+        public List<Producto> ListCompra = new List<Producto>();
+        
         private int _num;
         public int Num
         { 
@@ -50,13 +53,13 @@ namespace LibreriaClases
             set { _mediopago = value; }
         }
 
-        private string _cantprod;
+        /*private string _cantprod;
 
         public string CantProd
         {
             get { return _cantprod; }
             set { _cantprod = value; }
-        }
+        }*/
 
         public Operaciones()
         {
@@ -72,17 +75,41 @@ namespace LibreriaClases
             RazonCliente = datos[3];
             CodigoProducto = datos[4];
             MedioPago = datos[5];
-            CantProd = datos[6];
+            /*CantProd = datos[6];*/
         }
 
         public string GeneraLinea()
         {
-            return Num + ";" + Fecha + ";" + CUITCliente + ";" + RazonCliente + ";" + CodigoProducto + ";" + MedioPago + ";" + CantProd; 
+            string compra = null;
+            int n = 0;
+            while ( n < ListCompra.Count )
+            {
+                compra += "," + ListCompra[n].Costo + "," + ListCompra[n].Codigo + "," + ListCompra[n].Precio;
+                n++;
+            }
+            return Num + ";" + Fecha + ";" + CUITCliente + ";" + RazonCliente + ";" + CodigoProducto + ";" + MedioPago /*+ CantProd*/ + compra;
+        }
+
+        public void AñadirLista(Producto prod)
+        {
+            ListCompra.Add(prod);
+        }
+
+        public string GeneraLineaCompra()
+        {
+            int n = 0;
+            string detalles = null;
+            while ( n < ListCompra.Count )
+            {
+                detalles += ListCompra[n].Costo + "\t\t" + ListCompra[n].Codigo + "\t\t" + ListCompra[n].Precio + "\r\n";
+                n++;
+            }
+            return detalles;
         }
 
         public object[] GenerarObjeto()
         {
-            return new object[] { Num, Fecha, CUITCliente, RazonCliente, CodigoProducto, MedioPago, CantProd };
+            return new object[] { Num, Fecha, CUITCliente, RazonCliente, CodigoProducto, MedioPago, /*CantProd*/ };
         }
     }
 }

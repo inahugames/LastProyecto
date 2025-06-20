@@ -72,7 +72,15 @@ namespace LastProyecto
             string linea = lector.ReadLine();
             while (linea != null)
             {
+                string[] producto = linea.Split(',');
+                int n = 1;
                 Operaciones nueva = new Operaciones(linea);
+                while (n < producto.Length)
+                {
+                    Producto nuevo = new Producto(int.Parse(producto[n]), producto[n + 1], int.Parse(producto[n + 2]), int.Parse(producto[n + 3]));
+                    nueva.AñadirLista(nuevo);
+                    n = n + 4;
+                }
                 Registracion.ListOperaciones.Add(nueva);
                 linea = lector.ReadLine();
             }
