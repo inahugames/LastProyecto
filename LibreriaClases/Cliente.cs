@@ -16,6 +16,13 @@ namespace LibreriaClases
             set { _CUIT = value; }
         }
 
+        private string _razon;
+        public string Razon
+        {
+            get { return _razon; }
+            set { _razon = value; }
+        }
+
         public Cliente()
         {
             
@@ -25,6 +32,7 @@ namespace LibreriaClases
         {
             string[] datos = linea.Split(';');
             CUIT = float.Parse(datos[0]);
+            Razon = datos[1];
         }
     }
 }

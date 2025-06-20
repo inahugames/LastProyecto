@@ -37,8 +37,8 @@
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CUITCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RazonCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedioPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperaciones)).BeginInit();
@@ -63,8 +63,8 @@
             this.Fecha,
             this.CUITCliente,
             this.RazonCliente,
-            this.CodigoProducto,
             this.MedioPago,
+            this.CodigoProducto,
             this.CantProd});
             this.dgvOperaciones.Location = new System.Drawing.Point(501, 12);
             this.dgvOperaciones.Name = "dgvOperaciones";
@@ -135,14 +135,6 @@
             this.RazonCliente.ReadOnly = true;
             this.RazonCliente.Width = 125;
             // 
-            // CodigoProducto
-            // 
-            this.CodigoProducto.HeaderText = "Código Producto";
-            this.CodigoProducto.MinimumWidth = 6;
-            this.CodigoProducto.Name = "CodigoProducto";
-            this.CodigoProducto.ReadOnly = true;
-            this.CodigoProducto.Width = 125;
-            // 
             // MedioPago
             // 
             this.MedioPago.HeaderText = "Medio de Pago";
@@ -150,6 +142,14 @@
             this.MedioPago.Name = "MedioPago";
             this.MedioPago.ReadOnly = true;
             this.MedioPago.Width = 125;
+            // 
+            // CodigoProducto
+            // 
+            this.CodigoProducto.HeaderText = "Código Producto";
+            this.CodigoProducto.MinimumWidth = 6;
+            this.CodigoProducto.Name = "CodigoProducto";
+            this.CodigoProducto.ReadOnly = true;
+            this.CodigoProducto.Width = 125;
             // 
             // CantProd
             // 
@@ -188,8 +188,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CUITCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazonCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn MedioPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantProd;
     }
 }

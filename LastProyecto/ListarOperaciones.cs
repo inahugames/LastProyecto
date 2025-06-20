@@ -44,7 +44,27 @@ namespace LastProyecto
                     {
                         if (Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccion].CUIT)
                         {
-                            dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
+                            string linea = Registracion.ListOperaciones[n].DatosCompra();
+                            string[] datos = linea.Split(';');
+                            if (datos.Length > 4)
+                            {
+                                int z = 0;
+                                string pedido = null;
+                                string numpedido = null;
+                                while (z < datos.Length - 1)
+                                {
+                                    pedido += datos[z] + ",";
+                                    numpedido += datos[z + 1] + ",";
+                                    z = z + 2;
+                                }
+                                string[] operacion = Registracion.ListOperaciones[n].GenerarVector();
+                                dgvOperaciones.Rows.Add(operacion[0], operacion[1], operacion[2], operacion[3], operacion[4], pedido, numpedido);
+                            }
+                            else
+                            {
+                                string[] operacion = Registracion.ListOperaciones[n].GenerarVector();
+                                dgvOperaciones.Rows.Add(operacion[0], operacion[1], operacion[2], operacion[3], operacion[4], datos[0], datos[1]);
+                            }
                             n++;
                         }
                         else
@@ -57,17 +77,22 @@ namespace LastProyecto
                 {
                     dgvOperaciones.Rows.Clear();
                     n = 0;
+                    int x = 0;
                     while (n < Registracion.ListOperaciones.Count)
                     {
-                        if (Registracion.ListOperaciones[n].CodigoProducto == Registracion.ListProductos[seleccion].Codigo)
+                        while (x < Registracion.ListOperaciones[n].ListCompra.Count)
                         {
-                            dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
-                            n++;
+                            if (Registracion.ListOperaciones[n].ListCompra[x].Codigo == Registracion.ListProductos[seleccion].Codigo)
+                            {
+                                dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
+                                break;
+                            }
+                            else
+                            {
+                                x++;
+                            }
                         }
-                        else
-                        {
-                            n++;
-                        }
+                        n++;
                     }
                 }
             }
@@ -99,7 +124,7 @@ namespace LastProyecto
             int seleccionfac = int.Parse(dgvseleccion);
             seleccionfac = seleccionfac - 1;
             string detallesproducto = Registracion.ListOperaciones[seleccionfac].GeneraLineaCompra();
-            string prodseleccion = Registracion.ListOperaciones[seleccionfac].CodigoProducto;
+            /*string prodseleccion = Registracion.ListOperaciones[seleccionfac].CodigoProducto;
             foreach (Producto prod in Registracion.ListProductos)
             {
                 if (prodseleccion == prod.Codigo)
@@ -107,7 +132,7 @@ namespace LastProyecto
                     listacompra.Add(prod);
                     break;
                 }
-            }
+            }*/
             FormFactura factos = new FormFactura(Registracion.ListOperaciones[seleccionfac].Num, Registracion.ListOperaciones[seleccionfac].Fecha, Registracion.ListOperaciones[seleccionfac].CUITCliente, Registracion.ListOperaciones[seleccionfac].RazonCliente, /*int.Parse(Registracion.ListOperaciones[seleccionfac].CantProd), listacompra[0].Codigo, listacompra[0].Precio, 1*/ detallesproducto);
             factos.Show();
         }

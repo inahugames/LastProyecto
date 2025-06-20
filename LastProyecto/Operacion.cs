@@ -20,6 +20,8 @@ namespace LastProyecto
         double precio;
         int puntero = 0;
         int cantidad = 0;
+        int cuenta;
+        double acumuloprecio;
         List<Producto> listcompra = new List<Producto>();
         public Operacion()
         {
@@ -62,21 +64,26 @@ namespace LastProyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (listcompra.Count > 0 && comboBox1.Text != null)
+            if (listcompra.Count > 0 && comboBox1.Text != "")
             {
                 //txtPrecio.Text = Convert.ToString(DeterminarPrecio());
+                precio = 0;
                 Operaciones nueva = new Operaciones();
                 nueva.CUITCliente = Registracion.ListClientes[seleccionc].CUIT;
-                nueva.CodigoProducto = Registracion.ListProductos[seleccionp].Codigo;
+                //nueva.CodigoProducto = Registracion.ListProductos[seleccionp].Codigo;
                 nueva.MedioPago = comboBox1.Text;
+                nueva.RazonCliente = Registracion.ListClientes[seleccionc].Razon;
+                nueva.Fecha = System.DateTime.Now;
                 int n = 0;
                 while ( n < listcompra.Count )
                 {
                     nueva.AñadirLista(listcompra[n]);
+                    precio += listcompra[n].Existencia;
                     n++;
                 }
                 /*nueva.CantProd = Convert.ToString(numCantProd.Value);*/
                 EscriboOperaciones(nueva);
+                nueva.Num = cuenta;
                 Registracion.ListOperaciones.Add(nueva);
             }
             else
@@ -96,7 +103,9 @@ namespace LastProyecto
             string texto = lector.ReadToEnd();
             lector.Close();
             StreamWriter escritor = new StreamWriter("Operaciones.csv");
-            escritor.Write(texto + Environment.NewLine + nueva.GeneraLinea());
+            cuenta = Registracion.ListOperaciones.Count;
+            cuenta += 1;
+            escritor.Write(texto + Environment.NewLine + cuenta + ";" + nueva.GeneraLinea());
             escritor.Close();
         }
 
@@ -117,17 +126,61 @@ namespace LastProyecto
 
         private void btnAgregarAlCarro_Click(object sender, EventArgs e)
         {
+            cantidad = 0;
+            precio = 0;
             listcompra.Add(Registracion.ListProductos[seleccionp]);
             listcompra[puntero].Costo = Convert.ToInt32(numCantProd.Value);
             precio += Registracion.ListProductos[seleccionp].Precio;
             cantidad += Convert.ToInt32(numCantProd.Value);
-            double descuento = (cantidad * 0.05);
-            descuento = 1.00 - descuento;
+            double descuento = 0;
+            if (txtDescuento.Text == "")
+            {
+                descuento = (cantidad * 0.05);
+                descuento = 1.00 - descuento;
+            }
+            else
+            {
+                descuento = Convert.ToDouble(txtDescuento.Text);
+            }
             precio = precio * cantidad;
             precio = precio * descuento;
             listcompra[puntero].Existencia = precio;
-            txtCarrito.Text += Registracion.ListProductos[seleccionp].Codigo + "\tCANTIDAD: " + numCantProd.Value + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
+            acumuloprecio += precio;
+            txtPrecio.Text = Convert.ToString(acumuloprecio);
+            txtCarrito.Text += Registracion.ListProductos[seleccionp].Codigo + "\tCANTIDAD: " + numCantProd.Value + "\tPRECIO UNITARIO: " + listcompra[puntero].Precio + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
             puntero++;
+        }
+
+        private void btnBuscaProducto_Click(object sender, EventArgs e)
+        {
+            int n = 0;
+            bool encontrado = false;
+            try
+            {
+                while (n < Registracion.ListProductos.Count)
+                {
+                    if (txtBuscaProducto.Text == Registracion.ListProductos[n].Descripcion)
+                    {
+                        dgvProductos.ClearSelection();
+                        dgvProductos.Rows[n].Selected = true;
+                        dgvProductos.FirstDisplayedScrollingRowIndex = n;
+                        encontrado = true;
+                        break;
+                    }
+                    else
+                    {
+                        n++;
+                    }
+                }
+                if ( encontrado == false )
+                {
+                    MessageBox.Show("Producto no encontrado.");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Producto no encontrado.");
+            }
         }
 
         /*private double DeterminarPrecio()

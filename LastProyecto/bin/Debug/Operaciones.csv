@@ -1,8 +1,9 @@
-1;1/1/2025;1;Monotributista;A;Efectivo,3,A,2,6,2,B,4,8
-2;2/2/2025;1;Monotributista;A;Efectivo,1,A,2,2
-3;3/3/2025;1;Monotributista;A;Transferencia,4,A,2,8
-4;4/4/2025;1;Monotributista;A;Efectivo,7,A,2,14
-5;5/5/2025;1;Monotributista;A;Efectivo,4,A,2,8
-6;6/6/2025;1;Monotributista;A;Transferencia,2,A,2,4
-7;7/7/2025;2;Empresa;A;Efectivo,5,A,2,10
-8;8/8/2025;2;Empresa;A;Transferencia,4,A,2,8
+1;1/1/2025;1;Monotributista;Efectivo;,3,A,2,6,2,B,4,8
+2;2/2/2025;1;Monotributista;Efectivo;,1,A,2,2
+3;3/3/2025;1;Monotributista;Transferencia;,4,A,2,8
+4;4/4/2025;1;Monotributista;Efectivo;,7,A,2,14
+5;5/5/2025;1;Monotributista;Efectivo;,4,A,2,8
+6;6/6/2025;1;Monotributista;Transferencia;,2,A,2,4
+7;7/7/2025;2;Empresa;Efectivo;,5,A,2,10
+8;8/8/2025;2;Empresa;;Transferencia;,4,A,2,8
+9;20/06/2025 20:13:39;1;Monotributista;Efectivo;,3,A,2,5.1,2,B,4,7.2

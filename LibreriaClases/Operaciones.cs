@@ -18,8 +18,8 @@ namespace LibreriaClases
             set { _num = value; }
         }
 
-        private string _fecha;
-        public string Fecha
+        private DateTime _fecha;
+        public DateTime Fecha
         {
             get { return _fecha; }
             set { _fecha = value; }
@@ -37,13 +37,6 @@ namespace LibreriaClases
         {
             get { return _razoncliente; }
             set { _razoncliente = value; }
-        }
-
-        private string _codigoproducto;
-        public string CodigoProducto
-        {
-            get { return _codigoproducto; }
-            set { _codigoproducto = value; }
         }
 
         private string _mediopago;
@@ -70,11 +63,10 @@ namespace LibreriaClases
         {
             string[] datos = linea.Split(';');
             Num = int.Parse(datos[0]);
-            Fecha = datos[1];
+            Fecha = Convert.ToDateTime(datos[1]);
             CUITCliente = int.Parse(datos[2]);
             RazonCliente = datos[3];
-            CodigoProducto = datos[4];
-            MedioPago = datos[5];
+            MedioPago = datos[4];
             /*CantProd = datos[6];*/
         }
 
@@ -84,10 +76,10 @@ namespace LibreriaClases
             int n = 0;
             while ( n < ListCompra.Count )
             {
-                compra += "," + ListCompra[n].Costo + "," + ListCompra[n].Codigo + "," + ListCompra[n].Precio;
+                compra += "," + ListCompra[n].Costo + "," + ListCompra[n].Codigo + "," + ListCompra[n].Precio + "," + ListCompra[n].Existencia;
                 n++;
             }
-            return Num + ";" + Fecha + ";" + CUITCliente + ";" + RazonCliente + ";" + CodigoProducto + ";" + MedioPago /*+ CantProd*/ + compra;
+            return Fecha + ";" + CUITCliente + ";" + RazonCliente + ";"+ MedioPago + ";" + compra;
         }
 
         public void AñadirLista(Producto prod)
@@ -101,15 +93,30 @@ namespace LibreriaClases
             string detalles = null;
             while ( n < ListCompra.Count )
             {
-                detalles += ListCompra[n].Costo + "\t\t" + ListCompra[n].Codigo + "\t\t" + ListCompra[n].Precio + "\r\n";
+                detalles += ListCompra[n].Costo + "\t\t" + ListCompra[n].Codigo + "\t\t\t\t\t" + ListCompra[n].Precio + "\t\t" + ListCompra[n].Existencia + "\r\n";
                 n++;
             }
             return detalles;
         }
 
+        public string DatosCompra()
+        {
+            string datos = null;
+            foreach ( Producto prod in ListCompra )
+            {
+                datos += prod.Codigo + ";" + prod.Costo + ";"; 
+            }
+            return datos;
+        }
+
         public object[] GenerarObjeto()
         {
-            return new object[] { Num, Fecha, CUITCliente, RazonCliente, CodigoProducto, MedioPago, /*CantProd*/ };
+            return new object[] { Num, Fecha, CUITCliente, RazonCliente, MedioPago };
+        }
+
+        public string[] GenerarVector()
+        {
+            return new string[] { Convert.ToString(Num), Convert.ToString(Fecha), Convert.ToString(CUITCliente), RazonCliente, MedioPago };
         }
     }
 }

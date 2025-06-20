@@ -6,20 +6,32 @@ using System.Threading.Tasks;
 
 namespace LibreriaClases
 {
-    public abstract class Persona
-    {
-        private string _usuario;
-        public string Usuario
-        { 
-            get { return _usuario; } 
-            set { _usuario = value; }
+    public abstract class Persona/*<U, C>*/
+    { }
+    
+    /*{
+        private U Usuario;
+
+        public void GuardaUsuario(U user)
+        {
+            Usuario = user;
         }
 
-        private string _contraseña;
-        public string Contraseña
+        public U ObtenerUsuario()
         {
-            get { return _contraseña; }
-            set { _usuario = value; }
+            return Usuario;
         }
-    }
+
+        private C Contraseña;
+
+        public void GuardaContraseña(C password)
+        {
+            Contraseña = password;
+        }
+
+        public C ObtenerContraseña()
+        {
+            return Contraseña;
+        }
+    }*/
 }

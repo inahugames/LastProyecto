@@ -14,6 +14,14 @@ namespace LibreriaClases
             get { return _codigo; }
             set { _codigo = value; }
         }
+
+        private string _descripcion;
+        public string Descripcion
+        {
+            get { return _descripcion; }
+            set { _descripcion = value; }
+        }
+
         private int _costo;
         public int Costo
         {
@@ -39,7 +47,7 @@ namespace LibreriaClases
             
         }
 
-        public Producto(int cant, string cod, int prec, int ex)
+        public Producto(int cant, string cod, int prec, double ex)
         {
             Costo = cant; // costo en este caso se usa para determinar la cantidad de productos en la operacion
             Codigo = cod;
@@ -51,9 +59,15 @@ namespace LibreriaClases
         {
             string[] datos = linea.Split(';');
             Codigo = datos[0];
-            Costo = Convert.ToInt32(datos[1]);
-            Precio = Convert.ToInt32(datos[2]);
-            Existencia = Convert.ToInt32(datos[3]);
+            Descripcion = datos[1];
+            Costo = Convert.ToInt32(datos[2]);
+            Precio = Convert.ToInt32(datos[3]);
+            Existencia = Convert.ToDouble(datos[4]);
+        }
+
+        public object[] GenerarObjeto()
+        {
+            return new object[] { Codigo, Descripcion, Costo, Precio, Existencia };
         }
     }
 }

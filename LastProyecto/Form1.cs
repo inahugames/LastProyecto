@@ -77,7 +77,7 @@ namespace LastProyecto
                 Operaciones nueva = new Operaciones(linea);
                 while (n < producto.Length)
                 {
-                    Producto nuevo = new Producto(int.Parse(producto[n]), producto[n + 1], int.Parse(producto[n + 2]), int.Parse(producto[n + 3]));
+                    Producto nuevo = new Producto(int.Parse(producto[n]), producto[n + 1], int.Parse(producto[n + 2]), Convert.ToDouble(producto[n + 3]));
                     nueva.AñadirLista(nuevo);
                     n = n + 4;
                 }
