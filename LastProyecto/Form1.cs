@@ -17,6 +17,7 @@ namespace LastProyecto
         string[] admins = null;
         string[] vendedores = null;
         bool admin = false;
+        bool login = false;
         public Form1()
         {
             InitializeComponent();
@@ -122,6 +123,7 @@ namespace LastProyecto
                     listarOperacionesToolStripMenuItem.Visible = true;
                     MessageBox.Show("Inicio de sesión exitoso.");
                     admin = true;
+                    login = true;
                     break;
                 }
                 else
@@ -144,12 +146,18 @@ namespace LastProyecto
                         listasToolStripMenuItem.Visible = true;
                         nuevaOperaciónToolStripMenuItem.Visible = true;
                         listarOperacionesToolStripMenuItem.Visible= true;
+                        login = true;
                         MessageBox.Show("Inicio de sesión exitoso.");
                         break;
                     }
                     else
                     {
                         n++;
+                    }
+
+                    if (login == false )
+                    {
+                        MessageBox.Show("Ingrese un usuario o contraseña válidos.");
                     }
                 }
             }
