@@ -46,6 +46,13 @@ namespace LibreriaClases
             set { _mediopago = value; }
         }
 
+        private bool _habilitada;
+        public bool Habilitada
+        {
+            get { return _habilitada; }
+            set { _habilitada = value; }
+        }
+
         /*private string _cantprod;
 
         public string CantProd
@@ -67,7 +74,7 @@ namespace LibreriaClases
             CUITCliente = int.Parse(datos[2]);
             RazonCliente = datos[3];
             MedioPago = datos[4];
-            /*CantProd = datos[6];*/
+            Habilitada = Convert.ToBoolean(datos[5]);
         }
 
         public string GeneraLinea()
@@ -79,7 +86,7 @@ namespace LibreriaClases
                 compra += "," + ListCompra[n].Costo + "," + ListCompra[n].Codigo + "," + ListCompra[n].Precio + "," + ListCompra[n].Existencia;
                 n++;
             }
-            return Fecha + ";" + CUITCliente + ";" + RazonCliente + ";"+ MedioPago + ";" + compra;
+            return Num + ";" + Fecha + ";" + CUITCliente + ";" + RazonCliente + ";"+ MedioPago + ";" + Habilitada + ";" + compra;
         }
 
         public void AñadirLista(Producto prod)
@@ -111,12 +118,12 @@ namespace LibreriaClases
 
         public object[] GenerarObjeto()
         {
-            return new object[] { Num, Fecha, CUITCliente, RazonCliente, MedioPago };
+            return new object[] { Num, Fecha, CUITCliente, RazonCliente, MedioPago, Habilitada };
         }
 
         public string[] GenerarVector()
         {
-            return new string[] { Convert.ToString(Num), Convert.ToString(Fecha), Convert.ToString(CUITCliente), RazonCliente, MedioPago };
+            return new string[] { Convert.ToString(Num), Convert.ToString(Fecha), Convert.ToString(CUITCliente), RazonCliente, MedioPago, Convert.ToString(Habilitada) };
         }
     }
 }

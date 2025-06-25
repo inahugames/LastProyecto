@@ -102,10 +102,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\Debug\Administradores.csv" />
     <None Include="bin\Debug\Clientes.csv" />
     <None Include="bin\Debug\LastProyecto.exe.config" />
     <None Include="bin\Debug\Operaciones.csv" />
     <None Include="bin\Debug\Productos.csv" />
+    <None Include="bin\Debug\Vendedores.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

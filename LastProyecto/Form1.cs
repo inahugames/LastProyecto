@@ -14,9 +14,15 @@ namespace LastProyecto
 {
     public partial class Form1 : Form
     {
+        string[] admins = null;
+        string[] vendedores = null;
+        bool admin = false;
         public Form1()
         {
             InitializeComponent();
+            listasToolStripMenuItem.Visible = false;
+            nuevaOperaciónToolStripMenuItem.Visible = false;
+            listarOperacionesToolStripMenuItem.Visible = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,6 +30,7 @@ namespace LastProyecto
             CargaClientes();
             CargaProductos();
             CargaOperaciones();
+            CargoLogin();
         }
 
         private void listasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,7 +51,7 @@ namespace LastProyecto
         {
             StreamReader lector = new StreamReader("Clientes.csv");
             string linea = lector.ReadLine();
-            while ( linea != null )
+            while (linea != null)
             {
                 Cliente nuevo = new Cliente(linea);
                 Registracion.ListClientes.Add(nuevo);
@@ -89,9 +96,79 @@ namespace LastProyecto
 
         private void listarOperacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListarOperaciones listop = new ListarOperaciones();
+            ListarOperaciones listop = new ListarOperaciones(admin);
             listop.MdiParent = this;
             listop.Show();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (txtUser.Text == "" || txtPassword.Text == "")
+            {
+                MessageBox.Show("Ingrese un usuario o contraseña.");
+            }
+
+            int n = 0;
+            while ( n < admins.Length )
+            {
+                if ( txtUser.Text == admins[n] && txtPassword.Text == admins[n+1] )
+                {
+                    txtUser.Visible = false;
+                    txtPassword.Visible = false;
+                    label1.Visible = false;
+                    label2.Visible = false;
+                    btnLogin.Visible = false;
+                    listasToolStripMenuItem.Visible = true;
+                    listarOperacionesToolStripMenuItem.Visible = true;
+                    MessageBox.Show("Inicio de sesión exitoso.");
+                    admin = true;
+                    break;
+                }
+                else
+                {
+                    n++;
+                }
+            }
+            if ( admin == false )
+            {
+                n = 0;
+                while (n < vendedores.Length)
+                {
+                    if (txtUser.Text == vendedores[n] && txtPassword.Text == vendedores[n + 1])
+                    {
+                        txtUser.Visible = false;
+                        txtPassword.Visible = false;
+                        label1.Visible = false;
+                        label2.Visible = false;
+                        btnLogin.Visible = false;
+                        listasToolStripMenuItem.Visible = true;
+                        nuevaOperaciónToolStripMenuItem.Visible = true;
+                        listarOperacionesToolStripMenuItem.Visible= true;
+                        MessageBox.Show("Inicio de sesión exitoso.");
+                        break;
+                    }
+                    else
+                    {
+                        n++;
+                    }
+                }
+            }
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CargoLogin()
+        {
+            StreamReader lector = new StreamReader("Administradores.csv");
+            string linea = lector.ReadToEnd();
+            lector.Close();
+            admins = linea.Split(';');
+            lector = new StreamReader("Vendedores.csv");
+            linea = lector.ReadToEnd();
+            vendedores = linea.Split(';');
         }
     }
 }

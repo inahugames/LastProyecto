@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -19,12 +20,16 @@ namespace LastProyecto
         int n = 0;
         bool prod;
         List<Producto> listacompra = new List<Producto>();
-        public ListarOperaciones()
+        public ListarOperaciones(bool adm)
         {
             InitializeComponent();
             dgvDatos.DataSource = null;
             dgvDatos.DataSource = Registracion.ListClientes;
             prod = false;
+            if (adm == true )
+            {
+                btnCancelar.Visible = true;
+            }
         }
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -34,72 +39,7 @@ namespace LastProyecto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (prod == false)
-                {
-                    dgvOperaciones.Rows.Clear();
-                    n = 0;
-                    while (n < Registracion.ListOperaciones.Count)
-                    {
-                        if (Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccion].CUIT)
-                        {
-                            string linea = Registracion.ListOperaciones[n].DatosCompra();
-                            string[] datos = linea.Split(';');
-                            if (datos.Length > 4)
-                            {
-                                int z = 0;
-                                string pedido = null;
-                                string numpedido = null;
-                                while (z < datos.Length - 1)
-                                {
-                                    pedido += datos[z] + ",";
-                                    numpedido += datos[z + 1] + ",";
-                                    z = z + 2;
-                                }
-                                string[] operacion = Registracion.ListOperaciones[n].GenerarVector();
-                                dgvOperaciones.Rows.Add(operacion[0], operacion[1], operacion[2], operacion[3], operacion[4], pedido, numpedido);
-                            }
-                            else
-                            {
-                                string[] operacion = Registracion.ListOperaciones[n].GenerarVector();
-                                dgvOperaciones.Rows.Add(operacion[0], operacion[1], operacion[2], operacion[3], operacion[4], datos[0], datos[1]);
-                            }
-                            n++;
-                        }
-                        else
-                        {
-                            n++;
-                        }
-                    }
-                }
-                else
-                {
-                    dgvOperaciones.Rows.Clear();
-                    n = 0;
-                    int x = 0;
-                    while (n < Registracion.ListOperaciones.Count)
-                    {
-                        while (x < Registracion.ListOperaciones[n].ListCompra.Count)
-                        {
-                            if (Registracion.ListOperaciones[n].ListCompra[x].Codigo == Registracion.ListProductos[seleccion].Codigo)
-                            {
-                                dgvOperaciones.Rows.Add(Registracion.ListOperaciones[n].GenerarObjeto());
-                                break;
-                            }
-                            else
-                            {
-                                x++;
-                            }
-                        }
-                        n++;
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Elija un producto o cliente");
-            }
+            ActualizarDgv();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -149,10 +89,115 @@ namespace LastProyecto
                 MessageBox.Show("Seleciona un número de operación para producir su factura.");
             }
         }
-
-        public void GenerarLineaProductos()
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-           
+            int selec = int.Parse(dgvseleccion);
+            selec = selec - 1;
+            Registracion.ListOperaciones[selec].Habilitada = false;
+            ActualizoOperaciones();
+            ActualizarDgv();
+        }
+        
+        private void ActualizoOperaciones()
+        {
+            string datos = null;
+            foreach ( Operaciones op in Registracion.ListOperaciones )
+            {
+                datos += op.GeneraLinea() + Environment.NewLine;
+            }
+            StreamWriter escritor = new StreamWriter("Operaciones.csv");
+            escritor.Write(datos);
+            escritor.Close();
+        }
+
+        public void ActualizarDgv()
+        {
+            try
+            {
+                if (prod == false)
+                {
+                    dgvOperaciones.Rows.Clear();
+                    n = 0;
+                    while (n < Registracion.ListOperaciones.Count)
+                    {
+                        if (Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccion].CUIT)
+                        {
+                            string linea = Registracion.ListOperaciones[n].DatosCompra();
+                            string[] datos = linea.Split(';');
+                            if (datos.Length > 4)
+                            {
+                                int z = 0;
+                                string pedido = null;
+                                string numpedido = null;
+                                while (z < datos.Length - 1)
+                                {
+                                    pedido += datos[z] + ",";
+                                    numpedido += datos[z + 1] + ",";
+                                    z = z + 2;
+                                }
+                                string[] operacion = Registracion.ListOperaciones[n].GenerarVector();
+                                dgvOperaciones.Rows.Add(operacion[0], operacion[1], operacion[2], operacion[3], operacion[4], operacion[5], pedido, numpedido);
+                            }
+                            else
+                            {
+                                string[] operacion = Registracion.ListOperaciones[n].GenerarVector();
+                                dgvOperaciones.Rows.Add(operacion[0], operacion[1], operacion[2], operacion[3], operacion[4], operacion[5], datos[0], datos[1]);
+                            }
+                            n++;
+                        }
+                        else
+                        {
+                            n++;
+                        }
+                    }
+                }
+                else
+                {
+                    dgvOperaciones.Rows.Clear();
+                    n = 0;
+                    int x = 0;
+                    while (n < Registracion.ListOperaciones.Count)
+                    {
+                        while (x < Registracion.ListOperaciones[n].ListCompra.Count)
+                        {
+                            if (Registracion.ListOperaciones[n].ListCompra[x].Codigo == Registracion.ListProductos[seleccion].Codigo)
+                            {
+                                string linea = Registracion.ListOperaciones[n].DatosCompra();
+                                string[] datos = linea.Split(';');
+                                if (datos.Length > 4)
+                                {
+                                    int z = 0;
+                                    string pedido = null;
+                                    string numpedido = null;
+                                    while (z < datos.Length - 1)
+                                    {
+                                        pedido += datos[z] + ",";
+                                        numpedido += datos[z + 1] + ",";
+                                        z = z + 2;
+                                    }
+                                    string[] operacion = Registracion.ListOperaciones[n].GenerarVector();
+                                    dgvOperaciones.Rows.Add(operacion[0], operacion[1], operacion[2], operacion[3], operacion[4], operacion[5], pedido, numpedido);
+                                }
+                                else
+                                {
+                                    string[] operacion = Registracion.ListOperaciones[n].GenerarVector();
+                                    dgvOperaciones.Rows.Add(operacion[0], operacion[1], operacion[2], operacion[3], operacion[4], operacion[5], datos[0], datos[1]);
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                x++;
+                            }
+                        }
+                        n++;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Elija un producto o cliente");
+            }
         }
     }
 }

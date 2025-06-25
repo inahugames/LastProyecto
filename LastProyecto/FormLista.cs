@@ -33,5 +33,10 @@ namespace LastProyecto
         {
 
         }
+
+        private void dgvOperacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
