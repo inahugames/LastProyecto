@@ -86,7 +86,6 @@
             this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(100, 30);
             this.txtPrecio.TabIndex = 7;
-            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // comboBox1
             // 
@@ -198,6 +197,7 @@
             this.dgvProductos.RowTemplate.Height = 24;
             this.dgvProductos.Size = new System.Drawing.Size(395, 290);
             this.dgvProductos.TabIndex = 22;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick_1);
             // 
             // Operacion
             // 

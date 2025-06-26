@@ -61,20 +61,27 @@ namespace LastProyecto
 
         private void btnGenerarFactura_Click(object sender, EventArgs e)
         {
-            int seleccionfac = int.Parse(dgvseleccion);
-            seleccionfac = seleccionfac - 1;
-            string detallesproducto = Registracion.ListOperaciones[seleccionfac].GeneraLineaCompra();
-            /*string prodseleccion = Registracion.ListOperaciones[seleccionfac].CodigoProducto;
-            foreach (Producto prod in Registracion.ListProductos)
+            try
             {
-                if (prodseleccion == prod.Codigo)
+                int seleccionfac = int.Parse(dgvseleccion);
+                seleccionfac = seleccionfac - 1;
+                string detallesproducto = Registracion.ListOperaciones[seleccionfac].GeneraLineaCompra();
+                /*string prodseleccion = Registracion.ListOperaciones[seleccionfac].CodigoProducto;
+                foreach (Producto prod in Registracion.ListProductos)
                 {
-                    listacompra.Add(prod);
-                    break;
-                }
-            }*/
-            FormFactura factos = new FormFactura(Registracion.ListOperaciones[seleccionfac].Num, Registracion.ListOperaciones[seleccionfac].Fecha, Registracion.ListOperaciones[seleccionfac].CUITCliente, Registracion.ListOperaciones[seleccionfac].RazonCliente, /*int.Parse(Registracion.ListOperaciones[seleccionfac].CantProd), listacompra[0].Codigo, listacompra[0].Precio, 1*/ detallesproducto);
-            factos.Show();
+                    if (prodseleccion == prod.Codigo)
+                    {
+                        listacompra.Add(prod);
+                        break;
+                    }
+                }*/
+                FormFactura factos = new FormFactura(Registracion.ListOperaciones[seleccionfac].Num, Registracion.ListOperaciones[seleccionfac].Fecha, Registracion.ListOperaciones[seleccionfac].CUITCliente, Registracion.ListOperaciones[seleccionfac].RazonCliente, /*int.Parse(Registracion.ListOperaciones[seleccionfac].CantProd), listacompra[0].Codigo, listacompra[0].Precio, 1*/ detallesproducto);
+                factos.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Elija una operación para producir su factura.");
+            }
         }
 
         private void dgvOperaciones_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -91,11 +98,18 @@ namespace LastProyecto
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            int selec = int.Parse(dgvseleccion);
-            selec = selec - 1;
-            Registracion.ListOperaciones[selec].Habilitada = false;
-            ActualizoOperaciones();
-            ActualizarDgv();
+            try
+            {
+                int selec = int.Parse(dgvseleccion);
+                selec = selec - 1;
+                Registracion.ListOperaciones[selec].Habilitada = false;
+                ActualizoOperaciones();
+                ActualizarDgv();
+            }
+            catch
+            {
+                MessageBox.Show("Elija una operación para su cancelación.");
+            }
         }
         
         private void ActualizoOperaciones()
