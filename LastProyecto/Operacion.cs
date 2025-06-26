@@ -28,8 +28,10 @@ namespace LastProyecto
             InitializeComponent();
             dgvClientes.DataSource = null;
             dgvClientes.DataSource = Registracion.ListClientes;
-            dgvProductos.DataSource = null;
-            dgvProductos.DataSource = Registracion.ListProductos;
+            foreach ( Producto prod in Registracion.ListProductos )
+            {
+                dgvProductos.Rows.Add(prod.GenerarObjeto());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -134,7 +136,7 @@ namespace LastProyecto
 
         private void btnBuscaProducto_Click(object sender, EventArgs e)
         {
-            if (txtBuscaProducto.Text != "")
+            /*if (txtBuscaProducto.Text != "")
             {
                 int n = 0;
                 bool encontrado = false;
@@ -169,6 +171,21 @@ namespace LastProyecto
             else
             {
                 MessageBox.Show("Ingrese un producto para su búsqueda.");
+            }*/
+            dgvProductos.Rows.Clear();
+            try
+            {
+                var Productardo = from prod in Registracion.ListProductos
+                                  where prod.Descripcion.ToLower().Contains(txtBuscaProducto.Text) //|| prod.Descripcion.Equals(txtBuscaProducto.Text, StringComparison.OrdinalIgnoreCase)
+                                  select prod;
+                foreach (var prod in Productardo)
+                {
+                    dgvProductos.Rows.Add(prod.GenerarObjeto());
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Producto no encontrado.");
             }
         }
 
