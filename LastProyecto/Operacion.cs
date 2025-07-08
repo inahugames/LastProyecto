@@ -115,13 +115,21 @@ namespace LastProyecto
                             return;
                         }
                     }
-                    precio = precio * cantidad;
-                    precio = precio * descuento;
-                    listcompra[puntero].Existencia = precio;
-                    acumuloprecio += precio;
-                    txtPrecio.Text = Convert.ToString(acumuloprecio);
-                    txtCarrito.Text += Registracion.ListProductos[seleccionp].Codigo + "\t DESCRIPCION: " + Registracion.ListProductos[seleccionp].Descripcion + "\tCANTIDAD: " + numCantProd.Value + "\tPRECIO UNITARIO: " + listcompra[puntero].Precio + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
-                    puntero++;
+                    if (descuento != 0)
+                    {
+                        precio = precio * cantidad;
+                        precio = precio * descuento;
+                        listcompra[puntero].Existencia = precio;
+                        acumuloprecio += precio;
+                        txtPrecio.Text = Convert.ToString(acumuloprecio);
+                        txtCarrito.Text += Registracion.ListProductos[seleccionp].Codigo + "\t DESCRIPCION: " + Registracion.ListProductos[seleccionp].Descripcion + "\tCANTIDAD: " + numCantProd.Value + "\tPRECIO UNITARIO: " + listcompra[puntero].Precio + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
+                        puntero++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese un descuento válido.");
+                        txtDescuento.Clear();
+                    }
                 }
                 else
                 {
