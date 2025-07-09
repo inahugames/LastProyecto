@@ -24,6 +24,8 @@ namespace LastProyecto
         int cantidad = 0;
         int cuenta;
         double acumuloprecio;
+        string codprod;
+        Producto elegido;
         List<Producto> listcompra = new List<Producto>();
         public Operacion()
         {
@@ -49,7 +51,7 @@ namespace LastProyecto
                 //nueva.CodigoProducto = Registracion.ListProductos[seleccionp].Codigo;
                 nueva.MedioPago = comboBox1.Text;
                 nueva.RazonCliente = Registracion.ListClientes[seleccionc].Razon;
-                nueva.Fecha = System.DateTime.Now;
+                nueva.Fecha = DateTime.Today;
                 int n = 0;
                 while (n < listcompra.Count)
                 {
@@ -64,7 +66,14 @@ namespace LastProyecto
             }
             else
             {
-                MessageBox.Show("Datos inválidos.");
+                if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                {
+                    MessageBox.Show("Datos inválidos.");
+                }
+                else if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                {
+                    MessageBox.Show("Invalid data.");
+                }
             }
         }
 
@@ -80,8 +89,9 @@ namespace LastProyecto
             lector.Close();
             StreamWriter escritor = new StreamWriter("Operaciones.csv");
             cuenta = Registracion.ListOperaciones.Count;
-            cuenta += 1;
-            escritor.Write(texto + Environment.NewLine + cuenta + ";" + nueva.GeneraLinea());
+            nueva.Num = cuenta + 1;
+            nueva.Habilitada = true;
+            escritor.Write(texto + Environment.NewLine + nueva.GeneraLinea());
             escritor.Close();
         }
 
@@ -95,54 +105,105 @@ namespace LastProyecto
             {
                 if (comboBox1.Text != "")
                 {
-                    cantidad = 0;
-                    precio = 0;
-                    listcompra.Add(Registracion.ListProductos[seleccionp]);
-                    listcompra[puntero].Costo = Convert.ToInt32(numCantProd.Value);
-                    precio += Registracion.ListProductos[seleccionp].Precio;
-                    cantidad += Convert.ToInt32(numCantProd.Value);
-                    double descuento = 0;
-                    if (txtDescuento.Text == "")
+                    if (Registracion.ListProductos[seleccionp].Existencia >= Convert.ToInt32(numCantProd.Value))
                     {
-                        descuento = (cantidad * 0.05);
-                        descuento = 1.00 - descuento;
+                        cantidad = 0;
+                        precio = 0;
+                        foreach ( Producto prod in Registracion.ListProductos )
+                        {
+                            if ( prod.Codigo == codprod )
+                            {
+                                elegido = prod;
+                            }
+                        }
+                        elegido.Costo = Convert.ToInt32(numCantProd.Value);
+                        listcompra.Add(elegido);
+                        precio += elegido.Precio;
+                        cantidad += Convert.ToInt32(numCantProd.Value);
+                        double descuento = 0;
+                        if (txtDescuento.Text == "")
+                        {
+                            descuento = (cantidad * 0.05);
+                            descuento = 1.00 - descuento;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                descuento = Convert.ToDouble(txtDescuento.Text);
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Ingrese un descuento válido.");
+                                return;
+                            }
+                        }
+                        if (descuento != 0)
+                        {
+                            precio = precio * cantidad;
+                            precio = precio * descuento;
+                            listcompra[puntero].Existencia = precio;
+                            acumuloprecio += precio;
+                            txtPrecio.Text = Convert.ToString(acumuloprecio);
+                            txtCarrito.Text += elegido.Codigo + "\t DESCRIPCION: " + elegido.Descripcion + "\tCANTIDAD: " + numCantProd.Value + "\tPRECIO UNITARIO: " + listcompra[puntero].Precio + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
+                            puntero++;
+                        }
+                        else
+                        {
+                            if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                            {
+                                MessageBox.Show("Ingrese un descuento válido.");
+                                txtDescuento.Clear();
+                                return;
+                            }
+                            else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                            {
+                                MessageBox.Show("Enter a valid discount.");
+                                txtDescuento.Clear();
+                                return;
+                            }
+                        }
                     }
                     else
                     {
-                        try
+                        if ( CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
                         {
-                            descuento = Convert.ToDouble(txtDescuento.Text);
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Ingrese un descuento válido.");
+                            MessageBox.Show("Existencias insuficientes.");
                             return;
                         }
-                    }
-                    if (descuento != 0)
-                    {
-                        precio = precio * cantidad;
-                        precio = precio * descuento;
-                        listcompra[puntero].Existencia = precio;
-                        acumuloprecio += precio;
-                        txtPrecio.Text = Convert.ToString(acumuloprecio);
-                        txtCarrito.Text += Registracion.ListProductos[seleccionp].Codigo + "\t DESCRIPCION: " + Registracion.ListProductos[seleccionp].Descripcion + "\tCANTIDAD: " + numCantProd.Value + "\tPRECIO UNITARIO: " + listcompra[puntero].Precio + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
-                        puntero++;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ingrese un descuento válido.");
-                        txtDescuento.Clear();
+                        else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                        {
+                            MessageBox.Show("Insufficient stock.");
+                            return;
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Elija un medio de pago.");
+                    if ( CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                    {
+                        MessageBox.Show("Elija un medio de pago.");
+                        return;
+                    }
+                    else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                    {
+                        MessageBox.Show("Select a payment method.");
+                        return;
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Ingrese una cantidad mayor a 0.");
+                if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                {
+                    MessageBox.Show("Ingrese una cantidad mayor a 0.");
+                    return;
+                }
+                else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                {
+                    MessageBox.Show("Enter a quantity over 0.");
+                    return;
+                }
             }
         }
 
@@ -203,7 +264,15 @@ namespace LastProyecto
 
         private void dgvProductos_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            seleccionp = e.RowIndex;
+            string[] datos = dgvProductos.CurrentRow.AccessibilityObject.Value.Split(';');
+
+            foreach ( Producto prod in Registracion.ListProductos )
+            {
+                if ( prod.Codigo == datos[0])
+                {
+                    codprod = prod.Codigo;
+                }
+            }
         }
     }
 }

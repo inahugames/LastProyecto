@@ -37,6 +37,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.numCantProd = new System.Windows.Forms.NumericUpDown();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.CUIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Razon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.btnAgregarAlCarro = new System.Windows.Forms.Button();
@@ -50,8 +52,6 @@
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Razon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numCantProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -82,11 +82,11 @@
             // 
             // comboBox1
             // 
-            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             resources.GetString("comboBox1.Items"),
             resources.GetString("comboBox1.Items1")});
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
             // 
             // label4
@@ -101,15 +101,27 @@
             // 
             // dgvClientes
             // 
-            resources.ApplyResources(this.dgvClientes, "dgvClientes");
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CUIT,
             this.Razon});
+            resources.ApplyResources(this.dgvClientes, "dgvClientes");
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowTemplate.Height = 24;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
+            // 
+            // CUIT
+            // 
+            resources.ApplyResources(this.CUIT, "CUIT");
+            this.CUIT.Name = "CUIT";
+            this.CUIT.ReadOnly = true;
+            // 
+            // Razon
+            // 
+            resources.ApplyResources(this.Razon, "Razon");
+            this.Razon.Name = "Razon";
+            this.Razon.ReadOnly = true;
             // 
             // label3
             // 
@@ -153,7 +165,6 @@
             // 
             // dgvProductos
             // 
-            resources.ApplyResources(this.dgvProductos, "dgvProductos");
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
@@ -161,6 +172,7 @@
             this.Costo,
             this.PrecioP,
             this.Existencia});
+            resources.ApplyResources(this.dgvProductos, "dgvProductos");
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowTemplate.Height = 24;
@@ -195,18 +207,6 @@
             resources.ApplyResources(this.Existencia, "Existencia");
             this.Existencia.Name = "Existencia";
             this.Existencia.ReadOnly = true;
-            // 
-            // CUIT
-            // 
-            resources.ApplyResources(this.CUIT, "CUIT");
-            this.CUIT.Name = "CUIT";
-            this.CUIT.ReadOnly = true;
-            // 
-            // Razon
-            // 
-            resources.ApplyResources(this.Razon, "Razon");
-            this.Razon.Name = "Razon";
-            this.Razon.ReadOnly = true;
             // 
             // Operacion
             // 

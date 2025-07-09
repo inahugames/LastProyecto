@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -91,12 +92,35 @@ namespace LastProyecto
         {
             if (dgvOperaciones.Columns[e.ColumnIndex].Name == "Num")
             {
-                object a = dgvOperaciones.CurrentCell.Value;
-                dgvseleccion = a.ToString();
+                if ( dgvOperaciones.CurrentCell.Value != null )
+                {
+                    object a = dgvOperaciones.CurrentCell.Value;
+                    dgvseleccion = a.ToString();
+                }
+                else
+                {
+                    if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                    {
+                        MessageBox.Show("Error, seleccione otra operación");
+                        return;
+                    }
+                    else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                    {
+                        MessageBox.Show("An error was detected. Select another operation.");
+                        return;
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Seleciona un número de operación para producir su factura.");
+                if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                {
+                    MessageBox.Show("Seleciona un número de operación para producir su factura.");
+                }
+                else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                {
+                    MessageBox.Show("Select an operation number to produce its bill.");
+                }
             }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -207,6 +231,7 @@ namespace LastProyecto
                                 x++;
                             }
                         }
+                        x = 0;
                         n++;
                     }
                 }
