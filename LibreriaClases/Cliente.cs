@@ -34,5 +34,10 @@ namespace LibreriaClases
             CUIT = float.Parse(datos[0]);
             Razon = datos[1];
         }
+
+        public object[] GenerarObjeto()
+        {
+            return new object[] { CUIT, Razon };
+        }
     }
 }

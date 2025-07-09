@@ -28,39 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFactura));
             this.txtFactura = new System.Windows.Forms.TextBox();
             this.btnGuardarFactura = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtFactura
             // 
-            this.txtFactura.Location = new System.Drawing.Point(13, 13);
-            this.txtFactura.Multiline = true;
+            resources.ApplyResources(this.txtFactura, "txtFactura");
             this.txtFactura.Name = "txtFactura";
             this.txtFactura.ReadOnly = true;
-            this.txtFactura.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtFactura.Size = new System.Drawing.Size(775, 425);
-            this.txtFactura.TabIndex = 0;
             // 
             // btnGuardarFactura
             // 
-            this.btnGuardarFactura.Location = new System.Drawing.Point(795, 13);
+            resources.ApplyResources(this.btnGuardarFactura, "btnGuardarFactura");
             this.btnGuardarFactura.Name = "btnGuardarFactura";
-            this.btnGuardarFactura.Size = new System.Drawing.Size(217, 108);
-            this.btnGuardarFactura.TabIndex = 1;
-            this.btnGuardarFactura.Text = "Guardar Factura";
             this.btnGuardarFactura.UseVisualStyleBackColor = true;
             this.btnGuardarFactura.Click += new System.EventHandler(this.btnGuardarFactura_Click);
             // 
             // FormFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 450);
             this.Controls.Add(this.btnGuardarFactura);
             this.Controls.Add(this.txtFactura);
             this.Name = "FormFactura";
-            this.Text = "FormFactura";
             this.ResumeLayout(false);
             this.PerformLayout();
 

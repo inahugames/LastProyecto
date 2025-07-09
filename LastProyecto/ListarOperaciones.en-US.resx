@@ -117,79 +117,72 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;btnGuardarFactura.Name" xml:space="preserve">
-    <value>btnGuardarFactura</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnGuardarFactura.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="Razon.HeaderText" xml:space="preserve">
+    <value>Reason</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnGuardarFactura.Location" type="System.Drawing.Point, System.Drawing">
-    <value>795, 13</value>
+  <data name="dgvCliente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 425</value>
   </data>
-  <data name="&gt;&gt;txtFactura.Name" xml:space="preserve">
-    <value>txtFactura</value>
+  <data name="Num.HeaderText" xml:space="preserve">
+    <value>Bill Number</value>
   </data>
-  <data name="&gt;&gt;txtFactura.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="Fecha.HeaderText" xml:space="preserve">
+    <value>Date</value>
   </data>
-  <data name="&gt;&gt;txtFactura.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="CUITCliente.HeaderText" xml:space="preserve">
+    <value>Client's CUIT</value>
   </data>
-  <data name="txtFactura.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="RazonCliente.HeaderText" xml:space="preserve">
+    <value>Client's reason</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormFactura</value>
+  <data name="MedioPago.HeaderText" xml:space="preserve">
+    <value>Payment Method</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+  <data name="Habilitado.HeaderText" xml:space="preserve">
+    <value>Enabled</value>
   </data>
-  <data name="txtFactura.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="CodigoProducto.HeaderText" xml:space="preserve">
+    <value>Product Code</value>
   </data>
-  <data name="btnGuardarFactura.Text" xml:space="preserve">
-    <value>Guardar Factura</value>
+  <data name="CantProd.HeaderText" xml:space="preserve">
+    <value>Product Quantity</value>
   </data>
-  <data name="btnGuardarFactura.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 108</value>
+  <data name="button1.Text" xml:space="preserve">
+    <value>List Operations</value>
   </data>
-  <data name="&gt;&gt;btnGuardarFactura.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="button2.Text" xml:space="preserve">
+    <value>Change DGV</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnGenerarFactura.Text" xml:space="preserve">
+    <value>Generate bill</value>
   </data>
-  <data name="txtFactura.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 13</value>
+  <data name="btnCancelar.Text" xml:space="preserve">
+    <value>Cancel Operation</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>FormFactura</value>
+  <data name="dgvProductos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>189, 12</value>
   </data>
-  <data name="&gt;&gt;btnGuardarFactura.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="dgvProductos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 425</value>
   </data>
-  <data name="&gt;&gt;txtFactura.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dgvProductos.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1024, 450</value>
+  <data name="Codigo.HeaderText" xml:space="preserve">
+    <value>Code</value>
   </data>
-  <data name="&gt;&gt;btnGuardarFactura.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Descripcion.HeaderText" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtFactura.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Both</value>
+  <data name="Costo.HeaderText" xml:space="preserve">
+    <value>Cost</value>
   </data>
-  <data name="txtFactura.Size" type="System.Drawing.Size, System.Drawing">
-    <value>775, 425</value>
+  <data name="Precio.HeaderText" xml:space="preserve">
+    <value>Price</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en-US</value>
-  </metadata>
+  <data name="Existencia.HeaderText" xml:space="preserve">
+    <value>Stock</value>
+  </data>
 </root>

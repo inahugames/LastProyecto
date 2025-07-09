@@ -8,6 +8,11 @@ namespace LibreriaClases
 {
     public class Administrador : Persona
     {
-
+        public Administrador(string linea)
+        {
+            string[] datos = linea.Split(';');
+            Usuario = datos[0];
+            Contraseña = datos[1];
+        }
     }
 }

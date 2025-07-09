@@ -15,17 +15,22 @@ namespace LastProyecto
 {
     public partial class ListarOperaciones : Form
     {
-        int seleccion;
+        int seleccionc;
+        int seleccionp;
         string dgvseleccion;
         int n = 0;
-        bool prod;
         List<Producto> listacompra = new List<Producto>();
         public ListarOperaciones(bool adm)
         {
             InitializeComponent();
-            dgvDatos.DataSource = null;
-            dgvDatos.DataSource = Registracion.ListClientes;
-            prod = false;
+            foreach ( Cliente cl in Registracion.ListClientes )
+            {
+                dgvCliente.Rows.Add(cl.GenerarObjeto());
+            }
+            foreach ( Producto prod in Registracion.ListProductos )
+            {
+                dgvProductos.Rows.Add(prod.GenerarObjeto());
+            }
             if (adm == true )
             {
                 btnCancelar.Visible = true;
@@ -34,7 +39,7 @@ namespace LastProyecto
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            seleccion = e.RowIndex;
+            seleccionc = e.RowIndex;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,17 +50,15 @@ namespace LastProyecto
         private void button2_Click(object sender, EventArgs e)
         {
             dgvOperaciones.Rows.Clear();
-            if (prod == false)
+            if ( dgvProductos.Visible == false )
             {
-                dgvDatos.DataSource = null;
-                dgvDatos.DataSource = Registracion.ListProductos;
-                prod = true;
+                dgvCliente.Visible = false;
+                dgvProductos.Visible = true;
             }
             else
             {
-                dgvDatos.DataSource = null;
-                dgvDatos.DataSource = Registracion.ListClientes;
-                prod = false;
+                dgvCliente.Visible = true;
+                dgvProductos.Visible = false;
             }
         }
 
@@ -128,13 +131,13 @@ namespace LastProyecto
         {
             try
             {
-                if (prod == false)
+                if (dgvProductos.Visible == false)
                 {
                     dgvOperaciones.Rows.Clear();
                     n = 0;
                     while (n < Registracion.ListOperaciones.Count)
                     {
-                        if (Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccion].CUIT)
+                        if (Registracion.ListOperaciones[n].CUITCliente == Registracion.ListClientes[seleccionc].CUIT)
                         {
                             string linea = Registracion.ListOperaciones[n].DatosCompra();
                             string[] datos = linea.Split(';');
@@ -174,7 +177,7 @@ namespace LastProyecto
                     {
                         while (x < Registracion.ListOperaciones[n].ListCompra.Count)
                         {
-                            if (Registracion.ListOperaciones[n].ListCompra[x].Codigo == Registracion.ListProductos[seleccion].Codigo)
+                            if (Registracion.ListOperaciones[n].ListCompra[x].Codigo == Registracion.ListProductos[seleccionp].Codigo)
                             {
                                 string linea = Registracion.ListOperaciones[n].DatosCompra();
                                 string[] datos = linea.Split(';');
@@ -212,6 +215,11 @@ namespace LastProyecto
             {
                 MessageBox.Show("Elija un producto o cliente");
             }
+        }
+
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            seleccionp = e.RowIndex;
         }
     }
 }

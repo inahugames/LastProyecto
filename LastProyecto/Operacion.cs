@@ -8,6 +8,8 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Globalization;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,11 +28,13 @@ namespace LastProyecto
         public Operacion()
         {
             InitializeComponent();
-            dgvClientes.DataSource = null;
-            dgvClientes.DataSource = Registracion.ListClientes;
             foreach ( Producto prod in Registracion.ListProductos )
             {
                 dgvProductos.Rows.Add(prod.GenerarObjeto());
+            }
+            foreach ( Cliente cl in Registracion.ListClientes )
+            {
+                dgvClientes.Rows.Add(cl.GenerarObjeto());
             }
         }
 

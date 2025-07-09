@@ -117,4 +117,294 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="dgvClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>355, 539</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dgvOperacion.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="Precio.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="Fecha.HeaderText" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvClientes.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Precio.Name" xml:space="preserve">
+    <value>Precio</value>
+  </data>
+  <data name="&gt;&gt;RazonCliente.Name" xml:space="preserve">
+    <value>RazonCliente</value>
+  </data>
+  <data name="&gt;&gt;Fecha.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Costo.Name" xml:space="preserve">
+    <value>Costo</value>
+  </data>
+  <data name="Codigo.HeaderText" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="&gt;&gt;Codigo.Name" xml:space="preserve">
+    <value>Codigo</value>
+  </data>
+  <data name="&gt;&gt;dgvProductos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dgvClientes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 13</value>
+  </data>
+  <data name="&gt;&gt;Costo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CUIT.HeaderText" xml:space="preserve">
+    <value>CUIT</value>
+  </data>
+  <data name="&gt;&gt;Num.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Descripción.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Existencia.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="&gt;&gt;Razón.Name" xml:space="preserve">
+    <value>Razón</value>
+  </data>
+  <data name="&gt;&gt;Existencia.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvOperacion.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dgvClientes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvClientes.Name" xml:space="preserve">
+    <value>dgvClientes</value>
+  </data>
+  <data name="&gt;&gt;CUIT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MedioPago.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CUIT.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="Costo.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="&gt;&gt;CUITCliente.Name" xml:space="preserve">
+    <value>CUITCliente</value>
+  </data>
+  <data name="&gt;&gt;Habilitada.Name" xml:space="preserve">
+    <value>Habilitada</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>FormLista</value>
+  </data>
+  <data name="&gt;&gt;dgvOperacion.Name" xml:space="preserve">
+    <value>dgvOperacion</value>
+  </data>
+  <data name="Razón.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="&gt;&gt;Fecha.Name" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="RazonCliente.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="dgvOperacion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>787, 13</value>
+  </data>
+  <data name="Habilitada.HeaderText" xml:space="preserve">
+    <value>Habilitada</value>
+  </data>
+  <data name="&gt;&gt;MedioPago.Name" xml:space="preserve">
+    <value>MedioPago</value>
+  </data>
+  <data name="dgvProductos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 539</value>
+  </data>
+  <data name="&gt;&gt;dgvProductos.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dgvClientes.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dgvOperacion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1171, 564</value>
+  </data>
+  <data name="dgvClientes.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="CUITCliente.HeaderText" xml:space="preserve">
+    <value>CUIT del Cliente</value>
+  </data>
+  <data name="&gt;&gt;Habilitada.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Precio.HeaderText" xml:space="preserve">
+    <value>Precio</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormLista</value>
+  </data>
+  <data name="&gt;&gt;Precio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CUITCliente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Existencia.HeaderText" xml:space="preserve">
+    <value>Existencia</value>
+  </data>
+  <data name="dgvProductos.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="MedioPago.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="Costo.HeaderText" xml:space="preserve">
+    <value>Costo</value>
+  </data>
+  <data name="&gt;&gt;Num.Name" xml:space="preserve">
+    <value>Num</value>
+  </data>
+  <data name="MedioPago.HeaderText" xml:space="preserve">
+    <value>Medio de Pago</value>
+  </data>
+  <data name="Razón.HeaderText" xml:space="preserve">
+    <value>Razón</value>
+  </data>
+  <data name="&gt;&gt;dgvProductos.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Descripción.HeaderText" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="&gt;&gt;dgvProductos.Name" xml:space="preserve">
+    <value>dgvProductos</value>
+  </data>
+  <data name="dgvProductos.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="dgvProductos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>398, 13</value>
+  </data>
+  <data name="&gt;&gt;CUIT.Name" xml:space="preserve">
+    <value>CUIT</value>
+  </data>
+  <data name="&gt;&gt;Descripción.Name" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Descripción.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="Fecha.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="&gt;&gt;Existencia.Name" xml:space="preserve">
+    <value>Existencia</value>
+  </data>
+  <data name="RazonCliente.HeaderText" xml:space="preserve">
+    <value>Razón del Cliente</value>
+  </data>
+  <data name="dgvOperacion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>372, 539</value>
+  </data>
+  <data name="dgvOperacion.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Codigo.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="&gt;&gt;Codigo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RazonCliente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvClientes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Num.HeaderText" xml:space="preserve">
+    <value>Número</value>
+  </data>
+  <data name="CUITCliente.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="Habilitada.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="&gt;&gt;dgvOperacion.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Num.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="&gt;&gt;Razón.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="CUITCliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MedioPago.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CUIT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-US</value>
+  </metadata>
+  <metadata name="Precio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Fecha.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Num.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Existencia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Descripción.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Costo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Habilitada.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Razón.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Codigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RazonCliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

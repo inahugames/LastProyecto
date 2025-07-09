@@ -8,14 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Threading;
 using LibreriaClases;
 
 namespace LastProyecto
 {
     public partial class Form1 : Form
     {
-        string[] admins = null;
-        string[] vendedores = null;
+        static List<Administrador> ListAdmins = new List<Administrador>();
+        static List<Vendedor> ListVendedor = new List<Vendedor>();
         bool admin = false;
         bool login = false;
         public Form1()
@@ -28,10 +30,13 @@ namespace LastProyecto
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CargaClientes();
-            CargaProductos();
-            CargaOperaciones();
-            CargoLogin();
+            if (Registracion.ListClientes.Count == 0)
+            {
+                CargaClientes();
+                CargaProductos();
+                CargaOperaciones();
+                CargoLogin();
+            }
         }
 
         private void listasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,55 +114,69 @@ namespace LastProyecto
                 MessageBox.Show("Ingrese un usuario o contraseña.");
             }
 
-            int n = 0;
-            while ( n < admins.Length )
+            foreach (Administrador administra in ListAdmins)
             {
-                if ( txtUser.Text == admins[n] && txtPassword.Text == admins[n+1] )
+                if ( txtUser.Text == administra.Usuario && txtPassword.Text == administra.Contraseña )
                 {
                     txtUser.Visible = false;
                     txtPassword.Visible = false;
                     label1.Visible = false;
                     label2.Visible = false;
                     btnLogin.Visible = false;
+                    pictureboxAR.Visible = false;
+                    pictureboxUS.Visible = false;
                     listasToolStripMenuItem.Visible = true;
                     listarOperacionesToolStripMenuItem.Visible = true;
-                    MessageBox.Show("Inicio de sesión exitoso.");
+                    if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                    {
+                        MessageBox.Show("Inicio de sesión exitoso.");
+                    }
+                    else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                    {
+                        MessageBox.Show("Successfully logged in.");
+                    }
                     admin = true;
                     login = true;
                     break;
                 }
-                else
-                {
-                    n++;
-                }
             }
             if ( admin == false )
             {
-                n = 0;
-                while (n < vendedores.Length)
+                foreach ( Vendedor venta in ListVendedor )
                 {
-                    if (txtUser.Text == vendedores[n] && txtPassword.Text == vendedores[n + 1])
+                    if (txtUser.Text == venta.Usuario && txtPassword.Text == venta.Contraseña)
                     {
                         txtUser.Visible = false;
                         txtPassword.Visible = false;
                         label1.Visible = false;
                         label2.Visible = false;
                         btnLogin.Visible = false;
+                        pictureboxAR.Visible = false;
+                        pictureboxUS.Visible = false;
                         listasToolStripMenuItem.Visible = true;
                         nuevaOperaciónToolStripMenuItem.Visible = true;
                         listarOperacionesToolStripMenuItem.Visible= true;
                         login = true;
-                        MessageBox.Show("Inicio de sesión exitoso.");
+                        if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                        {
+                            MessageBox.Show("Inicio de sesión exitoso.");
+                        }
+                        else if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                        {
+                            MessageBox.Show("Successfully logged in.");
+                        }
                         break;
                     }
-                    else
-                    {
-                        n++;
-                    }
-
                     if (login == false )
                     {
-                        MessageBox.Show("Ingrese un usuario o contraseña válidos.");
+                        if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                        {
+                            MessageBox.Show("Ingrese un usuario o contraseña válidos.");
+                        }
+                        else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                        {
+                            MessageBox.Show("Wrong username or password.");
+                        }
                     }
                 }
             }
@@ -171,12 +190,48 @@ namespace LastProyecto
         private void CargoLogin()
         {
             StreamReader lector = new StreamReader("Administradores.csv");
-            string linea = lector.ReadToEnd();
+            string linea = lector.ReadLine();
+            while (linea != null)
+            {
+                Administrador nuevo = new Administrador(linea);
+                ListAdmins.Add(nuevo);
+                linea = lector.ReadLine();
+            }
             lector.Close();
-            admins = linea.Split(';');
             lector = new StreamReader("Vendedores.csv");
-            linea = lector.ReadToEnd();
-            vendedores = linea.Split(';');
+            linea = lector.ReadLine();
+            while ( linea != null )
+            {
+                Vendedor nuevo = new Vendedor(linea);
+                ListVendedor.Add(nuevo);
+                linea = lector.ReadLine();
+            }
+            lector.Close();
+        }
+
+        private void CambiarIdioma(string codigoIdioma)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(codigoIdioma);
+
+            this.Hide();
+            Form1 nuevoForm = new Form1();
+            nuevoForm.Show();
+        }
+
+        private void pictureboxAR_Click(object sender, EventArgs e)
+        {
+            if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+            {
+                CambiarIdioma("es-AR");
+            }
+        }
+
+        private void pictureboxUS_Click(object sender, EventArgs e)
+        {
+            if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+            {
+                CambiarIdioma("en-US");
+            }
         }
     }
 }

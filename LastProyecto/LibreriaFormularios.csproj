@@ -78,17 +78,47 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.en-US.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.es-AR.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFactura.en-US.resx">
+      <DependentUpon>FormFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFactura.es-AR.resx">
+      <DependentUpon>FormFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFactura.resx">
       <DependentUpon>FormFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLista.en-US.resx">
+      <DependentUpon>FormLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLista.es-AR.resx">
+      <DependentUpon>FormLista.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLista.resx">
       <DependentUpon>FormLista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ListarOperaciones.en-US.resx">
+      <DependentUpon>ListarOperaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListarOperaciones.es-AR.resx">
+      <DependentUpon>ListarOperaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListarOperaciones.resx">
       <DependentUpon>ListarOperaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion.en-US.resx">
+      <DependentUpon>Operacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacion.es-AR.resx">
+      <DependentUpon>Operacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacion.resx">
       <DependentUpon>Operacion.cs</DependentUpon>
@@ -101,6 +131,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="bin\Debug\Administradores.csv" />
     <None Include="bin\Debug\Clientes.csv" />
@@ -128,6 +159,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\flag_us.jpg" />
+    <None Include="bin\Debug\flag_ar.png" />
     <Content Include="bin\Debug\LastProyecto.exe" />
     <Content Include="bin\Debug\LastProyecto.pdb" />
     <Content Include="bin\Debug\LibreriaClases.dll" />

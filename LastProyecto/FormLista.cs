@@ -21,12 +21,18 @@ namespace LastProyecto
 
         public void ActualizoDGV()
         {
-            dgvClientes.DataSource = null;
-            dgvOperacion.DataSource = null;
-            dgvProductos.DataSource = null;
-            dgvClientes.DataSource = Registracion.ListClientes;
-            dgvOperacion.DataSource = Registracion.ListOperaciones;
-            dgvProductos.DataSource = Registracion.ListProductos;
+            foreach ( Cliente client in Registracion.ListClientes )
+            {
+                dgvClientes.Rows.Add(client.GenerarObjeto());
+            }
+            foreach (Operaciones op in Registracion.ListOperaciones)
+            {
+                dgvOperacion.Rows.Add(op.GenerarObjeto());
+            }
+            foreach ( Producto prod in Registracion.ListProductos )
+            {
+                dgvProductos.Rows.Add(prod.GenerarObjeto());
+            }
         }
 
         private void dgvOperaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
