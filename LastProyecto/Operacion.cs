@@ -61,7 +61,7 @@ namespace LastProyecto
                 }
                 /*nueva.CantProd = Convert.ToString(numCantProd.Value);*/
                 EscriboOperaciones(nueva);
-                nueva.Num = cuenta;
+                nueva.Num = cuenta + 1;
                 Registracion.ListOperaciones.Add(nueva);
             }
             else
@@ -109,12 +109,27 @@ namespace LastProyecto
                     {
                         cantidad = 0;
                         precio = 0;
-                        foreach ( Producto prod in Registracion.ListProductos )
+                        if (codprod != null)
                         {
-                            if ( prod.Codigo == codprod )
+                            foreach (Producto prod in Registracion.ListProductos)
                             {
-                                elegido = prod;
+                                if (prod.Codigo == codprod)
+                                {
+                                    elegido = prod;
+                                }
                             }
+                        }
+                        else
+                        {
+                            if ( CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                            {
+                                MessageBox.Show("Elija un producto para añadirlo al carrito.");
+                            }
+                            else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                            {
+                                MessageBox.Show("Choose a product to add to the cart.");
+                            }
+                            return;
                         }
                         elegido.Costo = Convert.ToInt32(numCantProd.Value);
                         listcompra.Add(elegido);
