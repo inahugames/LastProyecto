@@ -285,7 +285,7 @@ namespace LastProyecto
             dgvProductos.Rows.Clear();
             try
             {
-                var Productardo = Registracion.ListProductos.Where(p => p.Descripcion.ToLower().Contains(txtBuscaProducto.Text)).ToList();
+                var Productardo = Registracion.ListProductos.Where(p => p.Descripcion.ToLower().Contains(txtBuscaProducto.Text.ToLower())).ToList();
                 foreach (var prod in Productardo)
                 {
                     dgvProductos.Rows.Add(prod.GenerarObjeto());
