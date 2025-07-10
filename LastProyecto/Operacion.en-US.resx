@@ -163,8 +163,8 @@
   <data name="label5.Text" xml:space="preserve">
     <value>Product Search</value>
   </data>
-  <data name="btnBuscaProducto.Text" xml:space="preserve">
-    <value>Search for Products</value>
+  <data name="btnReestableceDGV.Text" xml:space="preserve">
+    <value>Reset DGV</value>
   </data>
   <data name="Codigo.HeaderText" xml:space="preserve">
     <value>Code</value>

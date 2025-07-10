@@ -261,19 +261,9 @@ namespace LastProyecto
                 MessageBox.Show("Ingrese un producto para su búsqueda.");
             }*/
             dgvProductos.Rows.Clear();
-            try
+            foreach ( Producto prod in Registracion.ListProductos )
             {
-                var Productardo = from prod in Registracion.ListProductos
-                                  where prod.Descripcion.ToLower().Contains(txtBuscaProducto.Text) //|| prod.Descripcion.Equals(txtBuscaProducto.Text, StringComparison.OrdinalIgnoreCase)
-                                  select prod;
-                foreach (var prod in Productardo)
-                {
-                    dgvProductos.Rows.Add(prod.GenerarObjeto());
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Producto no encontrado.");
+                dgvProductos.Rows.Add(prod.GenerarObjeto());
             }
         }
 
@@ -287,6 +277,23 @@ namespace LastProyecto
                 {
                     codprod = prod.Codigo;
                 }
+            }
+        }
+
+        private void txtBuscaProducto_TextChanged(object sender, EventArgs e)
+        {
+            dgvProductos.Rows.Clear();
+            try
+            {
+                var Productardo = Registracion.ListProductos.Where(p => p.Descripcion.ToLower().Contains(txtBuscaProducto.Text)).ToList();
+                foreach (var prod in Productardo)
+                {
+                    dgvProductos.Rows.Add(prod.GenerarObjeto());
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Producto no encontrado.");
             }
         }
     }

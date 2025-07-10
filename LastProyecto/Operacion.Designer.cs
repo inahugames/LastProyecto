@@ -45,7 +45,7 @@
             this.txtCarrito = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBuscaProducto = new System.Windows.Forms.TextBox();
-            this.btnBuscaProducto = new System.Windows.Forms.Button();
+            this.btnReestableceDGV = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,11 +82,11 @@
             // 
             // comboBox1
             // 
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             resources.GetString("comboBox1.Items"),
             resources.GetString("comboBox1.Items1")});
-            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
             // 
             // label4
@@ -101,11 +101,11 @@
             // 
             // dgvClientes
             // 
+            resources.ApplyResources(this.dgvClientes, "dgvClientes");
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CUIT,
             this.Razon});
-            resources.ApplyResources(this.dgvClientes, "dgvClientes");
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowTemplate.Height = 24;
@@ -155,16 +155,18 @@
             // 
             resources.ApplyResources(this.txtBuscaProducto, "txtBuscaProducto");
             this.txtBuscaProducto.Name = "txtBuscaProducto";
+            this.txtBuscaProducto.TextChanged += new System.EventHandler(this.txtBuscaProducto_TextChanged);
             // 
-            // btnBuscaProducto
+            // btnReestableceDGV
             // 
-            resources.ApplyResources(this.btnBuscaProducto, "btnBuscaProducto");
-            this.btnBuscaProducto.Name = "btnBuscaProducto";
-            this.btnBuscaProducto.UseVisualStyleBackColor = true;
-            this.btnBuscaProducto.Click += new System.EventHandler(this.btnBuscaProducto_Click);
+            resources.ApplyResources(this.btnReestableceDGV, "btnReestableceDGV");
+            this.btnReestableceDGV.Name = "btnReestableceDGV";
+            this.btnReestableceDGV.UseVisualStyleBackColor = true;
+            this.btnReestableceDGV.Click += new System.EventHandler(this.btnBuscaProducto_Click);
             // 
             // dgvProductos
             // 
+            resources.ApplyResources(this.dgvProductos, "dgvProductos");
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
@@ -172,7 +174,6 @@
             this.Costo,
             this.PrecioP,
             this.Existencia});
-            resources.ApplyResources(this.dgvProductos, "dgvProductos");
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowTemplate.Height = 24;
@@ -213,7 +214,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvProductos);
-            this.Controls.Add(this.btnBuscaProducto);
+            this.Controls.Add(this.btnReestableceDGV);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtBuscaProducto);
             this.Controls.Add(this.txtCarrito);
@@ -253,7 +254,7 @@
         private System.Windows.Forms.TextBox txtCarrito;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBuscaProducto;
-        private System.Windows.Forms.Button btnBuscaProducto;
+        private System.Windows.Forms.Button btnReestableceDGV;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn CUIT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Razon;
