@@ -100,7 +100,7 @@ namespace LibreriaClases
             string detalles = null;
             while ( n < ListCompra.Count )
             {
-                detalles += ListCompra[n].Costo + "\t\t" + ListCompra[n].Codigo + "\t\t\t\t\t" + ListCompra[n].Precio + "\t\t" + ListCompra[n].Existencia + "\r\n";
+                detalles += ListCompra[n].Costo + "\t\t" + ListCompra[n].Codigo + "\t\t" + ListCompra[n].Descripcion + "\t\t\t" + ListCompra[n].Precio + "\t\t" + ListCompra[n].Existencia + "\r\n";
                 n++;
             }
             return detalles;

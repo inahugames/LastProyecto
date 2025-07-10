@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,14 @@ namespace LastProyecto
         public FormFactura(int numfac, DateTime fecha, double cuitcliente, string razoncliente, /*int cantidad, string id, int preciouni, int total,*/ string productos)
         {
             InitializeComponent();
-            txtFactura.Text = "FACTURA \t\t\t I \r\nNUMERO DE FACTURA: "+ numfac + "\t\t I \r\nFECHA: " + fecha + "\t I \r\nCUIT CLIENTE: " + cuitcliente + "\t\t\t I \r\nRAZON CLIENTE: " + razoncliente + "\t I \r\nCUIL EMPRESA: " /*+ cuilemp*/ + "\t\t\t I \r\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nCANT PROD\tID\tDESCRIPCION\t\tPRECIO UNITARIO \tSUBTOTAL \r\n" + /*cantidad + "\t\t" + id + "\t\t\t\t" + preciouni + "\t\t\t" +total*/ productos;
+            if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+            {
+                txtFactura.Text = "FACTURA \t\t\t I \r\nNUMERO DE FACTURA: " + numfac + "\t\t I \r\nFECHA: " + fecha + "\t I \r\nCUIT CLIENTE: " + cuitcliente + "\t\t\t I \r\nRAZON CLIENTE: " + razoncliente + "\t I \r\nCUIL EMPRESA: " /*+ cuilemp*/ + "\t\t\t I \r\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nCANT PROD\tID\t\tPRECIO UNITARIO \tSUBTOTAL \r\n" + productos;
+            }
+            else if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+            {
+                txtFactura.Text = "BILL \t\t\t\t I \r\nBILL NUMBER: " + numfac + "\t\t\t I \r\nDATE: " + fecha + "\t\t I \r\nCLIENT'S CUIT: " + cuitcliente + "\t\t\t I \r\nCLIENT'S REASON: " + razoncliente + "\t I \r\nBUSINESS CUIL: " /*+ cuilemp*/ + "\t\t\t I \r\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nPROD QUANTITY\tID\t\tINDIVIDUAL PRICE \tTOTAL \r\n" + productos;
+            }
         }
 
         private void btnGuardarFactura_Click(object sender, EventArgs e)

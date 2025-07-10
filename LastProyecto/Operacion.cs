@@ -27,6 +27,7 @@ namespace LastProyecto
         string codprod;
         Producto elegido;
         List<Producto> listcompra = new List<Producto>();
+        public event EventHandler<string> StockInsuficiente;
         public Operacion()
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace LastProyecto
             {
                 dgvClientes.Rows.Add(cl.GenerarObjeto());
             }
+            this.StockInsuficiente += Operacion_StockInsuficiente;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -160,7 +162,14 @@ namespace LastProyecto
                             listcompra[puntero].Existencia = precio;
                             acumuloprecio += precio;
                             txtPrecio.Text = Convert.ToString(acumuloprecio);
-                            txtCarrito.Text += elegido.Codigo + "\t DESCRIPCION: " + elegido.Descripcion + "\tCANTIDAD: " + numCantProd.Value + "\tPRECIO UNITARIO: " + listcompra[puntero].Precio + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
+                            if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                            {
+                                txtCarrito.Text += elegido.Codigo + "\t DESCRIPCION: " + elegido.Descripcion + "\tCANTIDAD: " + numCantProd.Value + "\tPRECIO UNITARIO: " + listcompra[puntero].Precio + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
+                            }
+                            else if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
+                            {
+                                txtCarrito.Text += elegido.Codigo + "\t DESCRIPTION: " + elegido.Descripcion + "\tQUANTITY: " + numCantProd.Value + "\tINDIVIDUAL PRICE: " + listcompra[puntero].Precio + "\tTOTAL: " + listcompra[puntero].Existencia + "\r\n";
+                            }
                             puntero++;
                         }
                         else
@@ -183,13 +192,11 @@ namespace LastProyecto
                     {
                         if ( CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
                         {
-                            MessageBox.Show("Existencias insuficientes.");
-                            return;
+                            StockInsuficiente?.Invoke(this, $"No hay suficiente stock.");
                         }
                         else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
                         {
-                            MessageBox.Show("Insufficient stock.");
-                            return;
+                            StockInsuficiente?.Invoke(this, $"Insufficient stock.");
                         }
                     }
                 }
@@ -295,6 +302,11 @@ namespace LastProyecto
             {
                 MessageBox.Show("Producto no encontrado.");
             }
+        }
+
+        private void Operacion_StockInsuficiente( object sender, string mensaje )
+        {
+            MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
