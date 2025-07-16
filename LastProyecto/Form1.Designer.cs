@@ -33,6 +33,7 @@
             this.listasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaOperaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarOperacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -40,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureboxUS = new System.Windows.Forms.PictureBox();
             this.pictureboxAR = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.chkAdmin = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxUS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxAR)).BeginInit();
@@ -52,7 +55,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listasToolStripMenuItem,
             this.nuevaOperaciónToolStripMenuItem,
-            this.listarOperacionesToolStripMenuItem});
+            this.listarOperacionesToolStripMenuItem,
+            this.cerrarSesiónToolStripMenuItem});
             this.menuStrip1.Name = "menuStrip1";
             // 
             // listasToolStripMenuItem
@@ -72,6 +76,12 @@
             resources.ApplyResources(this.listarOperacionesToolStripMenuItem, "listarOperacionesToolStripMenuItem");
             this.listarOperacionesToolStripMenuItem.Name = "listarOperacionesToolStripMenuItem";
             this.listarOperacionesToolStripMenuItem.Click += new System.EventHandler(this.listarOperacionesToolStripMenuItem_Click);
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            resources.ApplyResources(this.cerrarSesiónToolStripMenuItem, "cerrarSesiónToolStripMenuItem");
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // txtUser
             // 
@@ -119,10 +129,25 @@
             this.pictureboxAR.TabStop = false;
             this.pictureboxAR.Click += new System.EventHandler(this.pictureboxAR_Click);
             // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // chkAdmin
+            // 
+            resources.ApplyResources(this.chkAdmin, "chkAdmin");
+            this.chkAdmin.Name = "chkAdmin";
+            this.chkAdmin.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.chkAdmin);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureboxUS);
             this.Controls.Add(this.pictureboxAR);
             this.Controls.Add(this.label2);
@@ -157,5 +182,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureboxAR;
         private System.Windows.Forms.PictureBox pictureboxUS;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox chkAdmin;
     }
 }

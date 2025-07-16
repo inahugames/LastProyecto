@@ -31,6 +31,7 @@ namespace LastProyecto
         public Operacion()
         {
             InitializeComponent();
+            Registracion.ListProductos.Sort();
             foreach ( Producto prod in Registracion.ListProductos )
             {
                 dgvProductos.Rows.Add(prod.GenerarObjeto());
@@ -117,7 +118,7 @@ namespace LastProyecto
                             {
                                 if (prod.Codigo == codprod)
                                 {
-                                    elegido = prod;
+                                    elegido = (Producto)prod.Clone();
                                 }
                             }
                         }

@@ -1,13 +1,2 @@
-1;01/01/2025 00:00:00;1;Monotributista;Efectivo;True;,3,A,2,6,2,B,4,8
-2;02/02/2025 00:00:00;1;Monotributista;Efectivo;True;,1,A,2,2
-3;03/03/2025 00:00:00;1;Monotributista;Transferencia;True;,4,A,2,8
-4;04/04/2025 00:00:00;1;Monotributista;Efectivo;True;,7,A,2,14
-5;05/05/2025 00:00:00;1;Monotributista;Efectivo;False;,4,A,2,8
-6;06/06/2025 00:00:00;1;Monotributista;Transferencia;True;,2,A,2,4
-7;07/07/2025 00:00:00;2;Empresa;Efectivo;True;,5,A,2,10
-8;08/08/2025 00:00:00;2;Empresa;Transferencia;False;,4,A,2,8
-9;09/07/2025 00:00:00;1;Monotributista;Efectivo;False;,3,C,4,10.2
-10;09/07/2025 00:00:00;1;Monotributista;Efectivo;True;,2,A,2,3.6,1,C,4,3.8,1,B,4,3.8
-11;09/07/2025 00:00:00;1;Monotributista;Transfer;True;,1,C,4,1.9
-12;09/07/2025 00:00:00;1;Monotributista;Transferencia;True;,1,C,4,3.8
-13;09/07/2025 00:00:00;1;Monotributista;Transferencia;True;,1,C,4,3.8,1,A,2,1.9
+1;15/07/2025 00:00:00;1;Monotributista;Efectivo;True;,5,B,Agua,4,15,1,C,Caramelo de menta,4,3.8
+2;15/07/2025 00:00:00;2;Empresa;Transferencia;True;,3,A,Caramelo,2,5.1,2,C,Caramelo de menta,4,7.2

@@ -90,9 +90,9 @@ namespace LastProyecto
                 Operaciones nueva = new Operaciones(linea);
                 while (n < producto.Length)
                 {
-                    Producto nuevo = new Producto(int.Parse(producto[n]), producto[n + 1], int.Parse(producto[n + 2]), Convert.ToDouble(producto[n + 3]));
+                    Producto nuevo = new Producto(int.Parse(producto[n]), producto[n + 1], producto[n+2], int.Parse(producto[n + 3]), Convert.ToDouble(producto[n + 4]));
                     nueva.AñadirLista(nuevo);
-                    n = n + 4;
+                    n = n + 5;
                 }
                 Registracion.ListOperaciones.Add(nueva);
                 linea = lector.ReadLine();
@@ -127,6 +127,9 @@ namespace LastProyecto
                     pictureboxUS.Visible = false;
                     listasToolStripMenuItem.Visible = true;
                     listarOperacionesToolStripMenuItem.Visible = true;
+                    cerrarSesiónToolStripMenuItem.Visible = true;
+                    button1.Visible = false;
+                    chkAdmin.Visible = false;
                     if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
                     {
                         MessageBox.Show("Inicio de sesión exitoso.");
@@ -156,14 +159,17 @@ namespace LastProyecto
                         listasToolStripMenuItem.Visible = true;
                         nuevaOperaciónToolStripMenuItem.Visible = true;
                         listarOperacionesToolStripMenuItem.Visible= true;
+                        cerrarSesiónToolStripMenuItem.Visible = true;
+                        button1.Visible = false;
+                        chkAdmin.Visible = false;
                         login = true;
                         if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
                         {
-                            MessageBox.Show("Inicio de sesión exitoso.");
+                            MessageBox.Show("Inicio de sesión exitoso.", "Información", MessageBoxButtons.OK,MessageBoxIcon.Information);
                         }
                         else if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
                         {
-                            MessageBox.Show("Successfully logged in.");
+                            MessageBox.Show("Successfully logged in.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         break;
                     }
@@ -171,11 +177,11 @@ namespace LastProyecto
                     {
                         if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
                         {
-                            MessageBox.Show("Ingrese un usuario o contraseña válidos.");
+                            MessageBox.Show("Ingrese un usuario o contraseña válidos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
                         {
-                            MessageBox.Show("Wrong username or password.");
+                            MessageBox.Show("Wrong username or password.", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -231,6 +237,88 @@ namespace LastProyecto
             if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
             {
                 CambiarIdioma("en-US");
+            }
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            login = false;
+            admin = false;
+            txtUser.Text = "";
+            txtPassword.Text = "";
+            label1.Visible = true;
+            label2.Visible = true;
+            listarOperacionesToolStripMenuItem.Visible = false;
+            listasToolStripMenuItem.Visible = false;
+            nuevaOperaciónToolStripMenuItem.Visible = false;
+            cerrarSesiónToolStripMenuItem.Visible = false;
+            btnLogin.Visible = true;
+            txtPassword.Visible = true;
+            txtUser.Visible = true;
+            pictureboxAR.Visible = true;
+            pictureboxUS.Visible = true;
+            button1.Visible = true;
+            if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)") { MessageBox.Show("Sesión cerrada exitosamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+            else if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)") { MessageBox.Show("Logged out successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (chkAdmin.Visible == false )
+            {
+                chkAdmin.Visible = true;
+                return;
+            }
+            if ( txtUser.Text != "" && txtPassword.Text != "")
+            {
+                if (chkAdmin.Checked)
+                {
+                    foreach ( Administrador adm in ListAdmins )
+                    {
+                        if ( txtUser.Text == adm.Usuario )
+                        {
+                            if ( CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)") { MessageBox.Show("Usuario ya creado, elija otro usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                            else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)") { MessageBox.Show("User is already registered, choose another username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                            return;
+                        }
+                    }
+                    StreamReader lector = new StreamReader("Administradores.csv");
+                    string texto = lector.ReadToEnd();
+                    lector.Close();
+                    StreamWriter escritor = new StreamWriter("Administradores.csv");
+                    escritor.Write(texto + Environment.NewLine + txtUser.Text + ";" + txtPassword.Text);
+                    escritor.Close();
+                    Administrador nuevo = new Administrador();
+                    nuevo.Usuario = txtUser.Text;
+                    nuevo.Contraseña = txtPassword.Text;
+                    ListAdmins.Add(nuevo);
+                }
+                else
+                {
+                    foreach (Vendedor vend in ListVendedor)
+                    {
+                        if (txtUser.Text == vend.Usuario)
+                        {
+                            if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)") { MessageBox.Show("Usuario ya creado, elija otro usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                            else if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)") { MessageBox.Show("User is already registered, choose another username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                            return;
+                        }
+                    }
+                    StreamReader lector = new StreamReader("Vendedores.csv");
+                    string texto = lector.ReadToEnd();
+                    lector.Close();
+                    StreamWriter escritor = new StreamWriter("Vendedores.csv");
+                    escritor.Write(texto + Environment.NewLine + txtUser.Text + ";" + txtPassword.Text);
+                    escritor.Close();
+                    Vendedor nuevo = new Vendedor();
+                    nuevo.Usuario = txtUser.Text;
+                    nuevo.Contraseña = txtPassword.Text;
+                    ListVendedor.Add(nuevo);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un usuario o contraseña.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

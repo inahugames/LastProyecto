@@ -19,11 +19,11 @@ namespace LastProyecto
             InitializeComponent();
             if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
             {
-                txtFactura.Text = "FACTURA \t\t\t I \r\nNUMERO DE FACTURA: " + numfac + "\t\t I \r\nFECHA: " + fecha + "\t I \r\nCUIT CLIENTE: " + cuitcliente + "\t\t\t I \r\nRAZON CLIENTE: " + razoncliente + "\t I \r\nCUIL EMPRESA: " /*+ cuilemp*/ + "\t\t\t I \r\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nCANT PROD\tID\t\tPRECIO UNITARIO \tSUBTOTAL \r\n" + productos;
+                txtFactura.Text = "FACTURA \t\t\t I \r\nNUMERO DE FACTURA: " + numfac + "\t\t I \r\nFECHA: " + fecha + "\t I \r\nCUIT CLIENTE: " + cuitcliente + "\t\t\t I \r\nRAZON CLIENTE: " + razoncliente + "\t I \r\nCUIL EMPRESA: " /*+ cuilemp*/ + "\t\t\t I \r\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nCANT PROD\tID\t\tDESCRIPCION\t\tPRECIO UNITARIO \tSUBTOTAL \r\n" + productos;
             }
             else if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)")
             {
-                txtFactura.Text = "BILL \t\t\t\t I \r\nBILL NUMBER: " + numfac + "\t\t\t I \r\nDATE: " + fecha + "\t\t I \r\nCLIENT'S CUIT: " + cuitcliente + "\t\t\t I \r\nCLIENT'S REASON: " + razoncliente + "\t I \r\nBUSINESS CUIL: " /*+ cuilemp*/ + "\t\t\t I \r\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nPROD QUANTITY\tID\t\tINDIVIDUAL PRICE \tTOTAL \r\n" + productos;
+                txtFactura.Text = "BILL \t\t\t\t I \r\nBILL NUMBER: " + numfac + "\t\t\t I \r\nDATE: " + fecha + "\t\t I \r\nCLIENT'S CUIT: " + cuitcliente + "\t\t\t I \r\nCLIENT'S REASON: " + razoncliente + "\t I \r\nBUSINESS CUIL: " /*+ cuilemp*/ + "\t\t\t I \r\n---------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nPROD QUANTITY\tID\t\tDESCRIPTION\t\tINDIVIDUAL PRICE \tTOTAL \r\n" + productos;
             }
         }
 

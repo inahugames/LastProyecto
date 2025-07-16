@@ -136,6 +136,12 @@
   <data name="listarOperacionesToolStripMenuItem.Text" xml:space="preserve">
     <value>Operation List</value>
   </data>
+  <data name="cerrarSesiónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 24</value>
+  </data>
+  <data name="cerrarSesiónToolStripMenuItem.Text" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
   <data name="btnLogin.Text" xml:space="preserve">
     <value>Log In</value>
   </data>

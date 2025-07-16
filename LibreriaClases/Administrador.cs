@@ -14,5 +14,10 @@ namespace LibreriaClases
             Usuario = datos[0];
             Contraseña = datos[1];
         }
+
+        public Administrador()
+        {
+            
+        }
     }
 }
