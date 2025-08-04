@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
 using LibreriaClases;
+using System.Security.Cryptography;
 
 namespace LastProyecto
 {
@@ -116,7 +117,7 @@ namespace LastProyecto
 
             foreach (Administrador administra in ListAdmins)
             {
-                if ( txtUser.Text == administra.Usuario && txtPassword.Text == administra.Contraseña )
+                if ( txtUser.Text == administra.Usuario && txtPassword.Text == administra.Contraseña)
                 {
                     txtUser.Visible = false;
                     txtPassword.Visible = false;
@@ -199,7 +200,11 @@ namespace LastProyecto
             string linea = lector.ReadLine();
             while (linea != null)
             {
-                Administrador nuevo = new Administrador(linea);
+                string[] datos = linea.Split(';');
+                datos[1] = Desencriptar(Convert.FromBase64String(datos[1]));
+                Administrador nuevo = new Administrador();
+                nuevo.Usuario = datos[0];
+                nuevo.Contraseña = datos[1];
                 ListAdmins.Add(nuevo);
                 linea = lector.ReadLine();
             }
@@ -208,7 +213,11 @@ namespace LastProyecto
             linea = lector.ReadLine();
             while ( linea != null )
             {
-                Vendedor nuevo = new Vendedor(linea);
+                string[] datos = linea.Split(';');
+                datos[1] = Desencriptar(Convert.FromBase64String(datos[1]));
+                Vendedor nuevo = new Vendedor();
+                nuevo.Usuario = datos[0];
+                nuevo.Contraseña = datos[1];
                 ListVendedor.Add(nuevo);
                 linea = lector.ReadLine();
             }
@@ -273,20 +282,21 @@ namespace LastProyecto
             {
                 if (chkAdmin.Checked)
                 {
-                    foreach ( Administrador adm in ListAdmins )
+                    foreach (Administrador adm in ListAdmins)
                     {
-                        if ( txtUser.Text == adm.Usuario )
+                        if (txtUser.Text == adm.Usuario)
                         {
-                            if ( CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)") { MessageBox.Show("Usuario ya creado, elija otro usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-                            else if ( CultureInfo.CurrentUICulture.DisplayName == "English (United States)") { MessageBox.Show("User is already registered, choose another username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                            if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)") { MessageBox.Show("Usuario ya creado, elija otro usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                            else if (CultureInfo.CurrentUICulture.DisplayName == "English (United States)") { MessageBox.Show("User is already registered, choose another username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                             return;
                         }
                     }
                     StreamReader lector = new StreamReader("Administradores.csv");
                     string texto = lector.ReadToEnd();
                     lector.Close();
+                    byte[] contra = Encriptar(txtPassword.Text);
                     StreamWriter escritor = new StreamWriter("Administradores.csv");
-                    escritor.Write(texto + Environment.NewLine + txtUser.Text + ";" + txtPassword.Text);
+                    escritor.Write(texto + Environment.NewLine + txtUser.Text + ";" + Convert.ToBase64String(contra));
                     escritor.Close();
                     Administrador nuevo = new Administrador();
                     nuevo.Usuario = txtUser.Text;
@@ -307,12 +317,13 @@ namespace LastProyecto
                     StreamReader lector = new StreamReader("Vendedores.csv");
                     string texto = lector.ReadToEnd();
                     lector.Close();
+                    byte[] contra = Encriptar(txtPassword.Text);
                     StreamWriter escritor = new StreamWriter("Vendedores.csv");
-                    escritor.Write(texto + Environment.NewLine + txtUser.Text + ";" + txtPassword.Text);
+                    escritor.Write(texto + Environment.NewLine + txtUser.Text + ";" + Convert.ToBase64String(contra));
                     escritor.Close();
                     Vendedor nuevo = new Vendedor();
                     nuevo.Usuario = txtUser.Text;
-                    nuevo.Contraseña = txtPassword.Text;
+                    nuevo.Contraseña = Convert.ToBase64String(contra);
                     ListVendedor.Add(nuevo);
                 }
             }
@@ -320,6 +331,18 @@ namespace LastProyecto
             {
                 MessageBox.Show("Ingrese un usuario o contraseña.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        public static byte[] Encriptar(string texto)
+        {
+            byte[] datos = Encoding.UTF8.GetBytes(texto);
+            return ProtectedData.Protect(datos, null, DataProtectionScope.CurrentUser);
+        }
+
+        public static string Desencriptar(byte[] cifrado)
+        {
+            byte[] datos = ProtectedData.Unprotect(cifrado, null, DataProtectionScope.CurrentUser);
+            return Encoding.UTF8.GetString(datos);
         }
     }
 }
