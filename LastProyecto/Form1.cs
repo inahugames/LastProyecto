@@ -17,7 +17,6 @@ namespace LastProyecto
 {
     public partial class Form1 : Form
     {
-
         static List<Administrador> ListAdmins = new List<Administrador>();
         static List<Vendedor> ListVendedor = new List<Vendedor>();
         bool admin = false;
