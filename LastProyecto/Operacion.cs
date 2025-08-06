@@ -77,11 +77,6 @@ namespace LastProyecto
             }
         }
 
-        private void Operacion_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public void EscriboOperaciones(Operaciones nueva)
         {
             StreamReader lector = new StreamReader("Operaciones.csv");

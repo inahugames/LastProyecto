@@ -53,14 +53,6 @@ namespace LibreriaClases
             set { _habilitada = value; }
         }
 
-        /*private string _cantprod;
-
-        public string CantProd
-        {
-            get { return _cantprod; }
-            set { _cantprod = value; }
-        }*/
-
         public Operaciones()
         {
             

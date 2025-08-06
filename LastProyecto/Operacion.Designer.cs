@@ -230,7 +230,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "Operacion";
-            this.Load += new System.EventHandler(this.Operacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCantProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
