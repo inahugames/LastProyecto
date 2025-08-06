@@ -14,7 +14,7 @@ namespace LastProyecto
 {
     public partial class FormFactura : Form
     {
-        public FormFactura(int numfac, DateTime fecha, double cuitcliente, string razoncliente, /*int cantidad, string id, int preciouni, int total,*/ string productos)
+        public FormFactura(int numfac, DateTime fecha, double cuitcliente, string razoncliente, string productos)
         {
             InitializeComponent();
             if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")

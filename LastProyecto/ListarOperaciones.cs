@@ -70,15 +70,6 @@ namespace LastProyecto
                 int seleccionfac = int.Parse(dgvseleccion);
                 seleccionfac = seleccionfac - 1;
                 string detallesproducto = Registracion.ListOperaciones[seleccionfac].GeneraLineaCompra();
-                /*string prodseleccion = Registracion.ListOperaciones[seleccionfac].CodigoProducto;
-                foreach (Producto prod in Registracion.ListProductos)
-                {
-                    if (prodseleccion == prod.Codigo)
-                    {
-                        listacompra.Add(prod);
-                        break;
-                    }
-                }*/
                 FormFactura factos = new FormFactura(Registracion.ListOperaciones[seleccionfac].Num, Registracion.ListOperaciones[seleccionfac].Fecha, Registracion.ListOperaciones[seleccionfac].CUITCliente, Registracion.ListOperaciones[seleccionfac].RazonCliente, /*int.Parse(Registracion.ListOperaciones[seleccionfac].CantProd), listacompra[0].Codigo, listacompra[0].Precio, 1*/ detallesproducto);
                 factos.Show();
             }

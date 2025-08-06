@@ -47,11 +47,9 @@ namespace LastProyecto
         {
             if (listcompra.Count > 0 && comboBox1.Text != "")
             {
-                //txtPrecio.Text = Convert.ToString(DeterminarPrecio());
                 precio = 0;
                 Operaciones nueva = new Operaciones();
                 nueva.CUITCliente = Registracion.ListClientes[seleccionc].CUIT;
-                //nueva.CodigoProducto = Registracion.ListProductos[seleccionp].Codigo;
                 nueva.MedioPago = comboBox1.Text;
                 nueva.RazonCliente = Registracion.ListClientes[seleccionc].Razon;
                 nueva.Fecha = DateTime.Today;
@@ -62,7 +60,6 @@ namespace LastProyecto
                     precio += listcompra[n].Existencia;
                     n++;
                 }
-                /*nueva.CantProd = Convert.ToString(numCantProd.Value);*/
                 EscriboOperaciones(nueva);
                 nueva.Num = cuenta + 1;
                 Registracion.ListOperaciones.Add(nueva);
@@ -232,42 +229,6 @@ namespace LastProyecto
 
         private void btnBuscaProducto_Click(object sender, EventArgs e)
         {
-            /*if (txtBuscaProducto.Text != "")
-            {
-                int n = 0;
-                bool encontrado = false;
-                try
-                {
-                    while (n < Registracion.ListProductos.Count)
-                    {
-                        if (txtBuscaProducto.Text == Registracion.ListProductos[n].Descripcion)
-                        {
-                            dgvProductos.ClearSelection();
-                            dgvProductos.Rows[n].Selected = true;
-                            dgvProductos.FirstDisplayedScrollingRowIndex = n;
-                            encontrado = true;
-                            seleccionp = n;
-                            break;
-                        }
-                        else
-                        {
-                            n++;
-                        }
-                    }
-                    if (encontrado == false)
-                    {
-                        MessageBox.Show("Producto no encontrado.");
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Producto no encontrado.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Ingrese un producto para su búsqueda.");
-            }*/
             dgvProductos.Rows.Clear();
             foreach ( Producto prod in Registracion.ListProductos )
             {
