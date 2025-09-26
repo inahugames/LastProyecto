@@ -154,6 +154,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{04f11cb7-4f42-492c-9bb2-643429c7a1cb}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibreriaClases\BE.csproj">
       <Project>{ee6f4545-7539-4c53-bac4-0dd145b14dc6}</Project>
       <Name>BE</Name>

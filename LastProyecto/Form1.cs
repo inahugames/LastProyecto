@@ -12,6 +12,7 @@ using System.Globalization;
 using System.Threading;
 using LibreriaClases;
 using SEG;
+using DAL;
 
 namespace LastProyecto
 {
@@ -291,7 +292,7 @@ namespace LastProyecto
                             return;
                         }
                     }
-                    StreamReader lector = new StreamReader("Administradores.csv");
+                    /*StreamReader lector = new StreamReader("Administradores.csv");
                     string texto = lector.ReadToEnd();
                     lector.Close();
                     byte[] contra = SEG.Encriptación.Encriptar(txtPassword.Text);
@@ -301,7 +302,39 @@ namespace LastProyecto
                     Administrador nuevo = new Administrador();
                     nuevo.Usuario = txtUser.Text;
                     nuevo.Contraseña = txtPassword.Text;
-                    ListAdmins.Add(nuevo);
+                    ListAdmins.Add(nuevo);*/
+
+                    Administrador admin = new Administrador();
+                    admin.Usuario = txtUser.Text;
+                    byte[] contra = SEG.Encriptación.Encriptar(txtPassword.Text);
+                    string maniobras = txtPassword.Text;
+                    admin.Contraseña = Convert.ToBase64String(contra);
+                    int reg = DAL.PersonaDAL.AgregarAdmin(admin);
+                    if ( reg > 0 )
+                    {
+                        if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                        {
+                            MessageBox.Show("Registrado exitosamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Registered successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        admin.Contraseña = maniobras;
+                        ListAdmins.Add(admin);
+                    }
+                    else
+                    {
+                        if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
+                        {
+                            MessageBox.Show("Error al registrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Registration error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        return;
+                    }
                 }
                 else
                 {

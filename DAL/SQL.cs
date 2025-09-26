@@ -9,22 +9,13 @@ namespace DAL
 {
     public class SQL
     {
-        string conexionstring = "Server aca";
-
-        public void Conectar()
+        public static SqlConnection Conectar()
         {
-            using (SqlConnection conexion = new SqlConnection(conexionstring))
-            {
-                string solicitud = "SELECT etc";
-                using (SqlCommand comando = new SqlCommand(solicitud, conexion))
-                using (SqlDataReader lector = comando.ExecuteReader())
-                {
-                    while (lector.Read())
-                    {
-
-                    }
-                }
-            }
+            SqlConnection Conexion = new SqlConnection("Integrated Security=SSPI;Persist Security Info=False;ial Catalog=BDfactos;Data Source=Millonario91218");
+            Conexion.Open();
+            return Conexion;
+        
         }
+
     }
 }
