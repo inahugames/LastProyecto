@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
 using LibreriaClases;
-using System.Security.Cryptography;
+using SEG;
 
 namespace LastProyecto
 {
@@ -91,7 +91,7 @@ namespace LastProyecto
                 Operaciones nueva = new Operaciones(linea);
                 while (n < producto.Length)
                 {
-                    Producto nuevo = new Producto(int.Parse(producto[n]), producto[n + 1], producto[n+2], int.Parse(producto[n + 3]), Convert.ToDouble(producto[n + 4]));
+                    Producto nuevo = new Producto(int.Parse(producto[n]), producto[n + 1], producto[n + 2], int.Parse(producto[n + 3]), Convert.ToDouble(producto[n + 4]));
                     nueva.AñadirLista(nuevo);
                     n = n + 5;
                 }
@@ -201,7 +201,7 @@ namespace LastProyecto
             while (linea != null)
             {
                 string[] datos = linea.Split(';');
-                datos[1] = Desencriptar(Convert.FromBase64String(datos[1]));
+                datos[1] = SEG.Encriptación.Desencriptar(Convert.FromBase64String(datos[1]));
                 Administrador nuevo = new Administrador();
                 nuevo.Usuario = datos[0];
                 nuevo.Contraseña = datos[1];
@@ -214,7 +214,7 @@ namespace LastProyecto
             while ( linea != null )
             {
                 string[] datos = linea.Split(';');
-                datos[1] = Desencriptar(Convert.FromBase64String(datos[1]));
+                datos[1] = SEG.Encriptación.Desencriptar(Convert.FromBase64String(datos[1]));
                 Vendedor nuevo = new Vendedor();
                 nuevo.Usuario = datos[0];
                 nuevo.Contraseña = datos[1];
@@ -294,7 +294,7 @@ namespace LastProyecto
                     StreamReader lector = new StreamReader("Administradores.csv");
                     string texto = lector.ReadToEnd();
                     lector.Close();
-                    byte[] contra = Encriptar(txtPassword.Text);
+                    byte[] contra = SEG.Encriptación.Encriptar(txtPassword.Text);
                     StreamWriter escritor = new StreamWriter("Administradores.csv");
                     escritor.Write(texto + Environment.NewLine + txtUser.Text + ";" + Convert.ToBase64String(contra));
                     escritor.Close();
@@ -317,7 +317,7 @@ namespace LastProyecto
                     StreamReader lector = new StreamReader("Vendedores.csv");
                     string texto = lector.ReadToEnd();
                     lector.Close();
-                    byte[] contra = Encriptar(txtPassword.Text);
+                    byte[] contra = SEG.Encriptación.Encriptar(txtPassword.Text);
                     StreamWriter escritor = new StreamWriter("Vendedores.csv");
                     escritor.Write(texto + Environment.NewLine + txtUser.Text + ";" + Convert.ToBase64String(contra));
                     escritor.Close();
@@ -333,7 +333,7 @@ namespace LastProyecto
             }
         }
 
-        public static byte[] Encriptar(string texto)
+        /*public static byte[] Encriptar(string texto)
         {
             byte[] datos = Encoding.UTF8.GetBytes(texto);
             return ProtectedData.Protect(datos, null, DataProtectionScope.CurrentUser);
@@ -343,6 +343,6 @@ namespace LastProyecto
         {
             byte[] datos = ProtectedData.Unprotect(cifrado, null, DataProtectionScope.CurrentUser);
             return Encoding.UTF8.GetString(datos);
-        }
+        }*/
     }
 }

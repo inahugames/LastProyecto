@@ -154,9 +154,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibreriaClases\LibreriaClases.csproj">
+    <ProjectReference Include="..\LibreriaClases\BE.csproj">
       <Project>{ee6f4545-7539-4c53-bac4-0dd145b14dc6}</Project>
-      <Name>LibreriaClases</Name>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibreriaFormularios\SEG.csproj">
+      <Project>{3452C7A7-B9F6-4862-86F3-33851A4BEF2F}</Project>
+      <Name>SEG</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
