@@ -62,7 +62,8 @@ namespace LibreriaClases
         {
             string[] datos = linea.Split(';');
             Num = int.Parse(datos[0]);
-            Fecha = Convert.ToDateTime(datos[1]);
+            DateTime fecha = Convert.ToDateTime(datos[1]);
+            Fecha = fecha;
             CUITCliente = int.Parse(datos[2]);
             RazonCliente = datos[3];
             MedioPago = datos[4];

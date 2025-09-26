@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using LibreriaClases;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace DAL
 {
@@ -16,8 +17,9 @@ namespace DAL
 
             using (SqlConnection conexion = SQL.Conectar())
             {
-                string consulta = "insert into Administradores (Usuario,Constraseña) values('"+admin.Usuario+"','"+admin.Contraseña+"')";
+                string consulta = "insert into Administradores values('"+admin.Usuario+"','"+admin.Contraseña+"')";
                 SqlCommand comando = new SqlCommand(consulta,conexion);
+                retorna = comando.ExecuteNonQuery();
             }
 
             return retorna;

@@ -202,7 +202,7 @@ namespace LastProyecto
             while (linea != null)
             {
                 string[] datos = linea.Split(';');
-                datos[1] = SEG.Encriptación.Desencriptar(Convert.FromBase64String(datos[1]));
+                //datos[1] = SEG.Encriptación.Desencriptar(Convert.FromBase64String(datos[1]));
                 Administrador nuevo = new Administrador();
                 nuevo.Usuario = datos[0];
                 nuevo.Contraseña = datos[1];
@@ -215,7 +215,7 @@ namespace LastProyecto
             while ( linea != null )
             {
                 string[] datos = linea.Split(';');
-                datos[1] = SEG.Encriptación.Desencriptar(Convert.FromBase64String(datos[1]));
+                //datos[1] = SEG.Encriptación.Desencriptar(Convert.FromBase64String(datos[1]));
                 Vendedor nuevo = new Vendedor();
                 nuevo.Usuario = datos[0];
                 nuevo.Contraseña = datos[1];
@@ -306,9 +306,10 @@ namespace LastProyecto
 
                     Administrador admin = new Administrador();
                     admin.Usuario = txtUser.Text;
-                    byte[] contra = SEG.Encriptación.Encriptar(txtPassword.Text);
-                    string maniobras = txtPassword.Text;
-                    admin.Contraseña = Convert.ToBase64String(contra);
+                    //byte[] contra = SEG.Encriptación.Encriptar(txtPassword.Text);
+                    //string maniobras = txtPassword.Text;
+                    //admin.Contraseña = Convert.ToBase64String(contra);
+                    admin.Contraseña = txtPassword.Text;
                     int reg = DAL.PersonaDAL.AgregarAdmin(admin);
                     if ( reg > 0 )
                     {
@@ -320,7 +321,6 @@ namespace LastProyecto
                         {
                             MessageBox.Show("Registered successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        admin.Contraseña = maniobras;
                         ListAdmins.Add(admin);
                     }
                     else

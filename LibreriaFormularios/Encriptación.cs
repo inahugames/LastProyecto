@@ -13,14 +13,13 @@ namespace SEG
         public static byte[] Encriptar(string texto)
         {
             byte[] datos = Encoding.UTF8.GetBytes(texto);
-            return ProtectedData.Protect(datos, null, DataProtectionScope.CurrentUser);
+            return ProtectedData.Protect(datos, null, DataProtectionScope.LocalMachine);
         }
 
         public static string Desencriptar(byte[] cifrado)
         {
-            byte[] datos = ProtectedData.Unprotect(cifrado, null, DataProtectionScope.CurrentUser);
+            byte[] datos = ProtectedData.Unprotect(cifrado, null, DataProtectionScope.LocalMachine);
             return Encoding.UTF8.GetString(datos);
-
         }
     }
 }

@@ -11,11 +11,9 @@ namespace DAL
     {
         public static SqlConnection Conectar()
         {
-            SqlConnection Conexion = new SqlConnection("Integrated Security=SSPI;Persist Security Info=False;ial Catalog=BDfactos;Data Source=Millonario91218");
+            SqlConnection Conexion = new SqlConnection("Data Source=MILLONARIO91218;Initial Catalog=BDFactos;Integrated Security=True;Encrypt=False");
             Conexion.Open();
             return Conexion;
-        
         }
-
     }
 }
