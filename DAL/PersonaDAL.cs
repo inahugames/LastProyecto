@@ -196,7 +196,7 @@ namespace DAL
                     producto.Costo = lector.GetInt16(1);
                     producto.Descripcion = lector.GetString(2);
                     producto.Precio = lector.GetInt16(3);
-                    producto.Existencia = lector.GetDouble(4);
+                    producto.Existencia = lector.GetInt16(4);
                     listprod.Add(producto);
                 }
                 conexion.Close();

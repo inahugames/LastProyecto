@@ -36,7 +36,7 @@ namespace LastProyecto
             {
                 CargaClientes();
                 CargaProductos();
-                CargaOperaciones();
+                //CargaOperaciones();
                 CargoLogin();
             }
         }
@@ -83,7 +83,7 @@ namespace LastProyecto
             Registracion.ListProductos = PersonaDAL.PresentarProductos();
         }
 
-        public void CargaOperaciones()
+        /*public void CargaOperaciones()
         {
             StreamReader lector = new StreamReader("Operaciones.csv");
             string linea = lector.ReadLine();
@@ -102,7 +102,7 @@ namespace LastProyecto
                 linea = lector.ReadLine();
             }
             lector.Close();
-        }
+        }*/
 
         private void listarOperacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -136,6 +136,9 @@
   <data name="&gt;&gt;RazonCliente.Name" xml:space="preserve">
     <value>RazonCliente</value>
   </data>
+  <data name="&gt;&gt;dgvCliente.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnCancelar.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 110</value>
@@ -149,8 +152,8 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Num.HeaderText" xml:space="preserve">
-    <value>Número Factura</value>
+  <data name="&gt;&gt;btnGenerarFactura.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dgvOperaciones.Size" type="System.Drawing.Size, System.Drawing">
     <value>537, 425</value>
@@ -158,14 +161,8 @@
   <data name="CUIT.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;btnCancelar.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;dgvProductos.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="dgvProductos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>474, 12</value>
   </data>
   <data name="&gt;&gt;Precio.Name" xml:space="preserve">
     <value>Precio</value>
@@ -175,9 +172,6 @@
   </data>
   <data name="dgvCliente.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>51</value>
-  </data>
-  <data name="&gt;&gt;dgvProductos.Name" xml:space="preserve">
-    <value>dgvProductos</value>
   </data>
   <data name="Descripcion.HeaderText" xml:space="preserve">
     <value>Descripción</value>
@@ -200,9 +194,6 @@
   <data name="&gt;&gt;CantProd.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Codigo.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
   <data name="&gt;&gt;dgvProductos.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -215,10 +206,16 @@
   <data name="&gt;&gt;Num.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="CUITCliente.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
   <data name="btnCancelar.Text" xml:space="preserve">
     <value>Cancelar Operación</value>
   </data>
   <data name="CodigoProducto.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="Num.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
@@ -226,9 +223,6 @@
   </data>
   <data name="&gt;&gt;dgvOperaciones.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="dgvProductos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 424</value>
   </data>
   <data name="Existencia.Width" type="System.Int32, mscorlib">
     <value>125</value>
@@ -248,17 +242,11 @@
   <data name="btnGenerarFactura.Text" xml:space="preserve">
     <value>Generar Factura</value>
   </data>
-  <data name="dgvCliente.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 425</value>
-  </data>
   <data name="&gt;&gt;CUIT.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Razon.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Num.Name" xml:space="preserve">
-    <value>Num</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -266,11 +254,11 @@
   <data name="dgvOperaciones.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>51</value>
   </data>
+  <data name="Razon.HeaderText" xml:space="preserve">
+    <value>Razón</value>
+  </data>
   <data name="dgvOperaciones.Location" type="System.Drawing.Point, System.Drawing">
     <value>501, 12</value>
-  </data>
-  <data name="&gt;&gt;Precio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MedioPago.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -299,14 +287,20 @@
   <data name="&gt;&gt;CodigoProducto.Name" xml:space="preserve">
     <value>CodigoProducto</value>
   </data>
+  <data name="Existencia.HeaderText" xml:space="preserve">
+    <value>Existencia</value>
+  </data>
   <data name="&gt;&gt;button1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Existencia.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;btnGenerarFactura.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Habilitado.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="RazonCliente.Width" type="System.Int32, mscorlib">
+    <value>125</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
     <value>Listar Operaciones</value>
@@ -314,11 +308,17 @@
   <data name="MedioPago.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="Habilitado.HeaderText" xml:space="preserve">
-    <value>Habilitado</value>
+  <data name="&gt;&gt;btnGenerarFactura.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnCancelar.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;CodigoProducto.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ListarOperaciones</value>
   </data>
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -326,17 +326,14 @@
   <data name="&gt;&gt;CantProd.Name" xml:space="preserve">
     <value>CantProd</value>
   </data>
-  <data name="&gt;&gt;btnGenerarFactura.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="dgvProductos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 424</value>
   </data>
   <data name="RazonCliente.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="Razon.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="button2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
   </data>
   <data name="CUITCliente.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
@@ -362,9 +359,6 @@
   <data name="CUITCliente.HeaderText" xml:space="preserve">
     <value>CUIT Cliente</value>
   </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="CUIT.Width" type="System.Int32, mscorlib">
     <value>125</value>
   </data>
@@ -374,8 +368,8 @@
   <data name="Precio.HeaderText" xml:space="preserve">
     <value>Precio</value>
   </data>
-  <data name="dgvProductos.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;Precio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="button2.Text" xml:space="preserve">
     <value>Cambiar DGV</value>
@@ -392,17 +386,20 @@
   <data name="dgvProductos.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>51</value>
   </data>
+  <data name="CantProd.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <data name="&gt;&gt;dgvOperaciones.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="dgvCliente.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="Costo.HeaderText" xml:space="preserve">
-    <value>Costo</value>
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="Razon.HeaderText" xml:space="preserve">
-    <value>Razón</value>
+  <data name="&gt;&gt;Num.Name" xml:space="preserve">
+    <value>Num</value>
   </data>
   <data name="Codigo.HeaderText" xml:space="preserve">
     <value>Código</value>
@@ -425,23 +422,26 @@
   <data name="&gt;&gt;btnCancelar.Name" xml:space="preserve">
     <value>btnCancelar</value>
   </data>
-  <data name="MedioPago.Width" type="System.Int32, mscorlib">
-    <value>125</value>
+  <data name="&gt;&gt;dgvProductos.Name" xml:space="preserve">
+    <value>dgvProductos</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ListarOperaciones</value>
+  <data name="dgvProductos.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="RazonCliente.Width" type="System.Int32, mscorlib">
-    <value>125</value>
+  <data name="dgvProductos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>474, 12</value>
   </data>
   <data name="&gt;&gt;CUIT.Name" xml:space="preserve">
     <value>CUIT</value>
   </data>
-  <data name="Num.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Habilitado.Width" type="System.Int32, mscorlib">
+  <data name="MedioPago.Width" type="System.Int32, mscorlib">
     <value>125</value>
+  </data>
+  <data name="&gt;&gt;btnGenerarFactura.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Costo.HeaderText" xml:space="preserve">
+    <value>Costo</value>
   </data>
   <data name="btnGenerarFactura.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 245</value>
@@ -476,8 +476,8 @@
   <data name="CantProd.Width" type="System.Int32, mscorlib">
     <value>125</value>
   </data>
-  <data name="&gt;&gt;btnGenerarFactura.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="Codigo.Width" type="System.Int32, mscorlib">
+    <value>125</value>
   </data>
   <data name="&gt;&gt;Codigo.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -497,17 +497,17 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 16</value>
   </data>
-  <data name="&gt;&gt;dgvCliente.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="Num.HeaderText" xml:space="preserve">
+    <value>Número Factura</value>
   </data>
   <data name="btnGenerarFactura.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="Existencia.HeaderText" xml:space="preserve">
-    <value>Existencia</value>
+  <data name="Habilitado.HeaderText" xml:space="preserve">
+    <value>Habilitado</value>
   </data>
-  <data name="CUITCliente.Width" type="System.Int32, mscorlib">
-    <value>125</value>
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="dgvOperaciones.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -518,8 +518,8 @@
   <data name="btnCancelar.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="CantProd.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="dgvCliente.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 425</value>
   </data>
   <data name="btnCancelar.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>

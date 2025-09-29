@@ -12,6 +12,7 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
 
 namespace LastProyecto
 {
@@ -88,6 +89,7 @@ namespace LastProyecto
             nueva.Habilitada = true;
             escritor.Write(texto + Environment.NewLine + nueva.GeneraLinea());
             escritor.Close();
+            //PersonaDAL.AgregarOperaciones(nueva);
         }
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -152,7 +154,7 @@ namespace LastProyecto
                         {
                             precio = precio * cantidad;
                             precio = precio * descuento;
-                            listcompra[puntero].Existencia = precio;
+                            listcompra[puntero].Existencia = Convert.ToInt32(precio);
                             acumuloprecio += precio;
                             txtPrecio.Text = Convert.ToString(acumuloprecio);
                             if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")
@@ -264,6 +266,11 @@ namespace LastProyecto
         private void Operacion_StockInsuficiente( object sender, string mensaje )
         {
             MessageBox.Show(mensaje, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void Operacion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

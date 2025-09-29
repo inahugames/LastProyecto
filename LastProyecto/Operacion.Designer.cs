@@ -82,11 +82,11 @@
             // 
             // comboBox1
             // 
-            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             resources.GetString("comboBox1.Items"),
             resources.GetString("comboBox1.Items1")});
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
             // 
             // label4
@@ -101,11 +101,11 @@
             // 
             // dgvClientes
             // 
-            resources.ApplyResources(this.dgvClientes, "dgvClientes");
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CUIT,
             this.Razon});
+            resources.ApplyResources(this.dgvClientes, "dgvClientes");
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowTemplate.Height = 24;
@@ -166,7 +166,6 @@
             // 
             // dgvProductos
             // 
-            resources.ApplyResources(this.dgvProductos, "dgvProductos");
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
@@ -174,6 +173,7 @@
             this.Costo,
             this.PrecioP,
             this.Existencia});
+            resources.ApplyResources(this.dgvProductos, "dgvProductos");
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowTemplate.Height = 24;
@@ -230,6 +230,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "Operacion";
+            this.Load += new System.EventHandler(this.Operacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCantProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();

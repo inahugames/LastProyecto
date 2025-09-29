@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLista));
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.dgvOperacion = new System.Windows.Forms.DataGridView();
             this.CUIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Razón = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvOperacion = new System.Windows.Forms.DataGridView();
             this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CUITCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +61,18 @@
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowTemplate.Height = 24;
             // 
+            // CUIT
+            // 
+            resources.ApplyResources(this.CUIT, "CUIT");
+            this.CUIT.Name = "CUIT";
+            this.CUIT.ReadOnly = true;
+            // 
+            // Razón
+            // 
+            resources.ApplyResources(this.Razón, "Razón");
+            this.Razón.Name = "Razón";
+            this.Razón.ReadOnly = true;
+            // 
             // dgvProductos
             // 
             resources.ApplyResources(this.dgvProductos, "dgvProductos");
@@ -74,34 +86,6 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowTemplate.Height = 24;
-            // 
-            // dgvOperacion
-            // 
-            resources.ApplyResources(this.dgvOperacion, "dgvOperacion");
-            this.dgvOperacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOperacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Num,
-            this.Fecha,
-            this.CUITCliente,
-            this.RazonCliente,
-            this.MedioPago,
-            this.Habilitada});
-            this.dgvOperacion.Name = "dgvOperacion";
-            this.dgvOperacion.ReadOnly = true;
-            this.dgvOperacion.RowTemplate.Height = 24;
-            this.dgvOperacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperacion_CellContentClick);
-            // 
-            // CUIT
-            // 
-            resources.ApplyResources(this.CUIT, "CUIT");
-            this.CUIT.Name = "CUIT";
-            this.CUIT.ReadOnly = true;
-            // 
-            // Razón
-            // 
-            resources.ApplyResources(this.Razón, "Razón");
-            this.Razón.Name = "Razón";
-            this.Razón.ReadOnly = true;
             // 
             // Codigo
             // 
@@ -132,6 +116,22 @@
             resources.ApplyResources(this.Existencia, "Existencia");
             this.Existencia.Name = "Existencia";
             this.Existencia.ReadOnly = true;
+            // 
+            // dgvOperacion
+            // 
+            resources.ApplyResources(this.dgvOperacion, "dgvOperacion");
+            this.dgvOperacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOperacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Num,
+            this.Fecha,
+            this.CUITCliente,
+            this.RazonCliente,
+            this.MedioPago,
+            this.Habilitada});
+            this.dgvOperacion.Name = "dgvOperacion";
+            this.dgvOperacion.ReadOnly = true;
+            this.dgvOperacion.RowTemplate.Height = 24;
+            this.dgvOperacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperacion_CellContentClick);
             // 
             // Num
             // 

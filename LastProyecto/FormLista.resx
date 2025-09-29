@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Num.HeaderText" xml:space="preserve">
+    <value>Número</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="dgvClientes.Size" type="System.Drawing.Size, System.Drawing">
     <value>355, 539</value>
@@ -148,9 +151,6 @@
   </data>
   <data name="&gt;&gt;Costo.Name" xml:space="preserve">
     <value>Costo</value>
-  </data>
-  <data name="Codigo.HeaderText" xml:space="preserve">
-    <value>Código</value>
   </data>
   <data name="&gt;&gt;Codigo.Name" xml:space="preserve">
     <value>Codigo</value>
@@ -188,9 +188,6 @@
   <data name="&gt;&gt;dgvClientes.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dgvClientes.Name" xml:space="preserve">
-    <value>dgvClientes</value>
-  </data>
   <data name="&gt;&gt;CUIT.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -203,14 +200,17 @@
   <data name="Costo.Width" type="System.Int32, mscorlib">
     <value>125</value>
   </data>
-  <data name="&gt;&gt;CUITCliente.Name" xml:space="preserve">
-    <value>CUITCliente</value>
+  <data name="Codigo.HeaderText" xml:space="preserve">
+    <value>Código</value>
   </data>
   <data name="&gt;&gt;Habilitada.Name" xml:space="preserve">
     <value>Habilitada</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FormLista</value>
+  </data>
+  <data name="dgvProductos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>398, 13</value>
   </data>
   <data name="&gt;&gt;dgvOperacion.Name" xml:space="preserve">
     <value>dgvOperacion</value>
@@ -220,9 +220,6 @@
   </data>
   <data name="&gt;&gt;Fecha.Name" xml:space="preserve">
     <value>Fecha</value>
-  </data>
-  <data name="RazonCliente.Width" type="System.Int32, mscorlib">
-    <value>125</value>
   </data>
   <data name="dgvOperacion.Location" type="System.Drawing.Point, System.Drawing">
     <value>787, 13</value>
@@ -239,8 +236,8 @@
   <data name="&gt;&gt;dgvProductos.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="dgvClientes.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;RazonCliente.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dgvOperacion.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -275,6 +272,9 @@
   <data name="Existencia.HeaderText" xml:space="preserve">
     <value>Existencia</value>
   </data>
+  <data name="&gt;&gt;CUITCliente.Name" xml:space="preserve">
+    <value>CUITCliente</value>
+  </data>
   <data name="dgvProductos.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>51</value>
   </data>
@@ -305,8 +305,8 @@
   <data name="dgvProductos.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="dgvProductos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>398, 13</value>
+  <data name="RazonCliente.Width" type="System.Int32, mscorlib">
+    <value>125</value>
   </data>
   <data name="&gt;&gt;CUIT.Name" xml:space="preserve">
     <value>CUIT</value>
@@ -338,14 +338,14 @@
   <data name="&gt;&gt;Codigo.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RazonCliente.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="dgvClientes.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;dgvClientes.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Num.HeaderText" xml:space="preserve">
-    <value>Número</value>
+  <data name="&gt;&gt;dgvClientes.Name" xml:space="preserve">
+    <value>dgvClientes</value>
   </data>
   <data name="CUITCliente.Width" type="System.Int32, mscorlib">
     <value>125</value>

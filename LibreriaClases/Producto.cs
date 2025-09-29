@@ -36,8 +36,8 @@ namespace LibreriaClases
             set { _precio = value; }
         }
 
-        private double _existencia;
-        public double Existencia
+        private int _existencia;
+        public int Existencia
         {
             get { return _existencia; }
             set { _existencia = value; }
@@ -65,7 +65,7 @@ namespace LibreriaClases
             Codigo = cod;
             Descripcion = desc;
             Precio = prec;
-            Existencia = ex; // uso la existencia para determinar el costo total del producto en la operacion
+            Existencia = Convert.ToInt32(ex); // uso la existencia para determinar el costo total del producto en la operacion
         }
 
         /*public Producto(string linea)
