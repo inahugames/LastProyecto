@@ -57,7 +57,7 @@ namespace LastProyecto
 
         public void CargaClientes()
         {
-            StreamReader lector = new StreamReader("Clientes.csv");
+            /*StreamReader lector = new StreamReader("Clientes.csv");
             string linea = lector.ReadLine();
             while (linea != null)
             {
@@ -65,12 +65,13 @@ namespace LastProyecto
                 Registracion.ListClientes.Add(nuevo);
                 linea = lector.ReadLine();
             }
-            lector.Close();
+            lector.Close();*/
+            Registracion.ListClientes = PersonaDAL.PresentarClientes();
         }
 
         public void CargaProductos()
         {
-            StreamReader lector = new StreamReader("Productos.csv");
+            /*StreamReader lector = new StreamReader("Productos.csv");
             string linea = lector.ReadLine();
             while (linea != null)
             {
@@ -78,7 +79,8 @@ namespace LastProyecto
                 Registracion.ListProductos.Add(nuevo);
                 linea = lector.ReadLine();
             }
-            lector.Close();
+            lector.Close();*/
+            Registracion.ListProductos = PersonaDAL.PresentarProductos();
         }
 
         public void CargaOperaciones()
@@ -92,7 +94,7 @@ namespace LastProyecto
                 Operaciones nueva = new Operaciones(linea);
                 while (n < producto.Length)
                 {
-                    Producto nuevo = new Producto(int.Parse(producto[n]), producto[n + 1], producto[n + 2], int.Parse(producto[n + 3]), Convert.ToDouble(producto[n + 4]));
+                    Producto nuevo = new Producto(int.Parse(producto[n]), Convert.ToInt32(producto[n + 1]), producto[n + 2], int.Parse(producto[n + 3]), Convert.ToDouble(producto[n + 4]));
                     nueva.AñadirLista(nuevo);
                     n = n + 5;
                 }
@@ -190,14 +192,9 @@ namespace LastProyecto
             }
         }
 
-        private void txtUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CargoLogin()
         {
-            StreamReader lector = new StreamReader("Administradores.csv");
+            /*StreamReader lector = new StreamReader("Administradores.csv");
             string linea = lector.ReadLine();
             while (linea != null)
             {
@@ -210,19 +207,22 @@ namespace LastProyecto
                 linea = lector.ReadLine();
             }
             lector.Close();
-            lector = new StreamReader("Vendedores.csv");
-            linea = lector.ReadLine();
+            StreamReader lector = new StreamReader("Vendedores.csv");
+            //lector = new StreamReader("Vendedores.csv");
+            string linea = lector.ReadLine();
             while ( linea != null )
             {
                 string[] datos = linea.Split(';');
-                //datos[1] = SEG.Encriptación.Desencriptar(Convert.FromBase64String(datos[1]));
+                datos[1] = SEG.Encriptación.Desencriptar(Convert.FromBase64String(datos[1]));
                 Vendedor nuevo = new Vendedor();
                 nuevo.Usuario = datos[0];
                 nuevo.Contraseña = datos[1];
                 ListVendedor.Add(nuevo);
                 linea = lector.ReadLine();
             }
-            lector.Close();
+            lector.Close();*/
+            ListAdmins = PersonaDAL.PresentarAdmins();
+            ListVendedor = PersonaDAL.PresentarVendedores();
         }
 
         private void CambiarIdioma(string codigoIdioma)

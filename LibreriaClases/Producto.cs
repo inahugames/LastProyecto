@@ -9,8 +9,8 @@ namespace LibreriaClases
 {
     public class Producto : IComparable<Producto> , ICloneable
     {
-        private string _codigo;
-        public string Codigo
+        private int _codigo;
+        public int Codigo
         {
             get { return _codigo; }
             set { _codigo = value; }
@@ -59,7 +59,7 @@ namespace LibreriaClases
             
         }
 
-        public Producto(int cant, string cod, string desc, int prec, double ex)
+        public Producto(int cant, int cod, string desc, int prec, double ex)
         {
             Costo = cant; // costo en este caso se usa para determinar la cantidad de productos en la operacion
             Codigo = cod;
@@ -68,7 +68,7 @@ namespace LibreriaClases
             Existencia = ex; // uso la existencia para determinar el costo total del producto en la operacion
         }
 
-        public Producto(string linea)
+        /*public Producto(string linea)
         {
             string[] datos = linea.Split(';');
             Codigo = datos[0];
@@ -76,7 +76,7 @@ namespace LibreriaClases
             Costo = Convert.ToInt32(datos[2]);
             Precio = Convert.ToInt32(datos[3]);
             Existencia = Convert.ToDouble(datos[4]);
-        }
+        }*/
 
         public object[] GenerarObjeto()
         {

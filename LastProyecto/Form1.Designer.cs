@@ -86,8 +86,6 @@
             // txtUser
             // 
             resources.ApplyResources(this.txtUser, "txtUser");
-            this.txtUser.Name = "txtUser";
-            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // txtPassword
             // 

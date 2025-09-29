@@ -24,7 +24,7 @@ namespace LastProyecto
         int cantidad = 0;
         int cuenta;
         double acumuloprecio;
-        string codprod;
+        int codprod;
         Producto elegido;
         List<Producto> listcompra = new List<Producto>();
         public event EventHandler<string> StockInsuficiente;
@@ -237,7 +237,7 @@ namespace LastProyecto
 
             foreach ( Producto prod in Registracion.ListProductos )
             {
-                if ( prod.Codigo == datos[0])
+                if ( prod.Codigo == Convert.ToInt32(datos[0]))
                 {
                     codprod = prod.Codigo;
                 }
