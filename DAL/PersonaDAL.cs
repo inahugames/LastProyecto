@@ -57,6 +57,12 @@ namespace DAL
             {
                 string consulta = $"insert into Operaciones (Número,Fecha,CUITCliente,RazonCliente,MedioPago,Habilitada) values ('{op.Num}','{op.Fecha}','{op.CUITCliente}','{op.RazonCliente}','{op.MedioPago}','{op.Habilitada}')";
                 SqlCommand comando = new SqlCommand(consulta,conexion);
+                foreach ( Producto prod in op.ListCompra )
+                {
+                    consulta = $"insert into ListCompras (Número,Cantidad,Código,Descripción,Precio,CostoTotal) values ('{op.Num}','{prod.Costo}','{prod.Codigo}','{prod.Descripcion}','{prod.Precio}','{prod.Existencia}')";
+                    SqlConnection conexion2 = SQL.Conectar();
+                    SqlCommand comando2 = new SqlCommand(consulta, conexion);
+                }
                 retorna = comando.ExecuteNonQuery();
             }
             return retorna;

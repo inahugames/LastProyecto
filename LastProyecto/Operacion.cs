@@ -61,7 +61,8 @@ namespace LastProyecto
                     precio += listcompra[n].Existencia;
                     n++;
                 }
-                EscriboOperaciones(nueva);
+                //EscriboOperaciones(nueva);
+                PersonaDAL.AgregarOperaciones(nueva);
                 nueva.Num = cuenta + 1;
                 Registracion.ListOperaciones.Add(nueva);
             }
