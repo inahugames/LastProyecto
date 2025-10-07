@@ -203,5 +203,46 @@ namespace DAL
                 return listprod;
             }
         }
+
+        public static List<Operaciones> PresentarOperaciones()
+        {
+            List<Operaciones> ListaDeOperaciones = new List<Operaciones>();
+            using (SqlConnection conexion = SQL.Conectar())
+            {
+                string consulta = "select *from Operaciones";
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                SqlDataReader lector = comando.ExecuteReader();
+                while (lector.Read())
+                {
+                    Operaciones nueva = new Operaciones();
+                    nueva.Num = lector.GetInt16(0);
+                    nueva.Fecha = lector.GetDateTime(1);
+                    nueva.CUITCliente = lector.GetInt32(2);
+                    nueva.RazonCliente = lector.GetString(3);
+                    nueva.MedioPago = lector.GetString(4);
+                    nueva.Habilitada = Convert.ToBoolean(lector.GetString(5));
+                    string consultaprod = "select * from ListaCompras";
+                    SqlConnection conexion2 = SQL.Conectar();
+                    SqlCommand comandoprod = new SqlCommand(consultaprod, conexion2);
+                    SqlDataReader lector2 = comandoprod.ExecuteReader();
+                    while (lector2.Read())
+                    {
+                        if ( nueva.Num == lector2.GetInt16(0) )
+                        {
+                            Producto nuevo = new Producto();
+                            nuevo.Costo = lector2.GetInt16(1);
+                            nuevo.Codigo = lector2.GetInt16(2);
+                            nuevo.Descripcion = lector2.GetString(3);
+                            nuevo.Precio = lector2.GetInt16(4);
+                            nuevo.Existencia = lector2.GetInt16(5);
+                            nueva.ListCompra.Add(nuevo);
+                        }
+                    }
+                    ListaDeOperaciones.Add(nueva);
+                }
+                conexion.Close();
+                return ListaDeOperaciones;
+            }
+        }
     }
 }

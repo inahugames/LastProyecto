@@ -36,7 +36,7 @@ namespace LastProyecto
             {
                 CargaClientes();
                 CargaProductos();
-                //CargaOperaciones();
+                CargaOperaciones();
                 CargoLogin();
             }
         }
@@ -83,9 +83,9 @@ namespace LastProyecto
             Registracion.ListProductos = PersonaDAL.PresentarProductos();
         }
 
-        /*public void CargaOperaciones()
+        public void CargaOperaciones()
         {
-            StreamReader lector = new StreamReader("Operaciones.csv");
+            /*StreamReader lector = new StreamReader("Operaciones.csv");
             string linea = lector.ReadLine();
             while (linea != null)
             {
@@ -101,8 +101,10 @@ namespace LastProyecto
                 Registracion.ListOperaciones.Add(nueva);
                 linea = lector.ReadLine();
             }
-            lector.Close();
-        }*/
+            lector.Close();*/
+
+            Registracion.ListOperaciones = PersonaDAL.PresentarOperaciones();
+        }
 
         private void listarOperacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
