@@ -154,13 +154,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{04f11cb7-4f42-492c-9bb2-643429c7a1cb}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LibreriaClases\BE.csproj">
+    <ProjectReference Include="..\LibreriaClases\BLL.csproj">
       <Project>{ee6f4545-7539-4c53-bac4-0dd145b14dc6}</Project>
-      <Name>BE</Name>
+      <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibreriaFormularios\SEG.csproj">
       <Project>{3452C7A7-B9F6-4862-86F3-33851A4BEF2F}</Project>

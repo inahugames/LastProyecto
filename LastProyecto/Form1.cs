@@ -12,7 +12,6 @@ using System.Globalization;
 using System.Threading;
 using LibreriaClases;
 using SEG;
-using DAL;
 
 namespace LastProyecto
 {
@@ -66,7 +65,7 @@ namespace LastProyecto
                 linea = lector.ReadLine();
             }
             lector.Close();*/
-            Registracion.ListClientes = PersonaDAL.PresentarClientes();
+            Registracion.ListClientes = PersonaBLL.PresentarClientes();
         }
 
         public void CargaProductos()
@@ -80,7 +79,7 @@ namespace LastProyecto
                 linea = lector.ReadLine();
             }
             lector.Close();*/
-            Registracion.ListProductos = PersonaDAL.PresentarProductos();
+            Registracion.ListProductos = PersonaBLL.PresentarProductos();
         }
 
         public void CargaOperaciones()
@@ -103,7 +102,7 @@ namespace LastProyecto
             }
             lector.Close();*/
 
-            Registracion.ListOperaciones = PersonaDAL.PresentarOperaciones();
+            Registracion.ListOperaciones = PersonaBLL.PresentarOperaciones();
         }
 
         private void listarOperacionesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -223,8 +222,8 @@ namespace LastProyecto
                 linea = lector.ReadLine();
             }
             lector.Close();*/
-            ListAdmins = PersonaDAL.PresentarAdmins();
-            ListVendedor = PersonaDAL.PresentarVendedores();
+            ListAdmins = PersonaBLL.PresentarAdmins();
+            ListVendedor = PersonaBLL.PresentarVendedores();
         }
 
         private void CambiarIdioma(string codigoIdioma)
@@ -312,7 +311,7 @@ namespace LastProyecto
                     //string maniobras = txtPassword.Text;
                     //admin.Contraseña = Convert.ToBase64String(contra);
                     admin.Contraseña = txtPassword.Text;
-                    int reg = DAL.PersonaDAL.AgregarAdmin(admin);
+                    int reg = PersonaBLL.AgregarAdmin(admin);
                     if ( reg > 0 )
                     {
                         if (CultureInfo.CurrentUICulture.DisplayName == "Español (Argentina)")

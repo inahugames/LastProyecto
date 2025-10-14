@@ -12,7 +12,6 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DAL;
 
 namespace LastProyecto
 {
@@ -62,7 +61,7 @@ namespace LastProyecto
                     n++;
                 }
                 //EscriboOperaciones(nueva);
-                PersonaDAL.AgregarOperaciones(nueva);
+                PersonaBLL.AgregarOperaciones(nueva);
                 nueva.Num = cuenta + 1;
                 Registracion.ListOperaciones.Add(nueva);
             }
